@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteViewModel(application: Application):AndroidViewModel(application) {
+class NoteViewModel(application: Application) : AndroidViewModel(application) {
     val allNote: LiveData<List<Note>>
     val repository: NoteRepository
 
@@ -20,6 +20,7 @@ class NoteViewModel(application: Application):AndroidViewModel(application) {
     fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
     }
+
     fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.update(note)
     }

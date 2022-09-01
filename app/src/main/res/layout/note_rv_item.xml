@@ -27,23 +27,23 @@
             android:id="@+id/tdTVTimeStamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/idIVDelete"
             android:layout_below="@id/tdTVNoteTitle"
             android:layout_margin="4dp"
+            android:layout_toLeftOf="@id/idIVDelete"
             android:padding="4dp"
             android:text="TimeStamp"
             android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/idIVDelete"
-            android:src="@drawable/ic_delete"
-            app:tint="@color/white"
-            android:layout_margin="5dp"
-            android:padding="4dp"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/white" />
     </RelativeLayout>
 
 

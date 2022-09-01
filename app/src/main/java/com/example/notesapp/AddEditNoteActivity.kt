@@ -29,8 +29,8 @@ class AddEditNoteActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )
-            .get(NoteViewModel::class.java)
+        ).get(NoteViewModel::class.java)
+
         val noteType = intent.getStringExtra("noteType")
         if (noteType.equals("Edit")) {
             val noteTitle = intent.getStringExtra("noteTitle")
@@ -50,18 +50,17 @@ class AddEditNoteActivity : AppCompatActivity() {
             if (noteType.equals("Edit")) {
                 if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
                     val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
-                    val currentDate : String = sdf.format(Date())
+                    val currentDate: String = sdf.format(Date())
                     val updateNote = Note(noteTitle, noteDescription, currentDate)
                     updateNote.id = noteID
                     viewModel.updateNote(updateNote)
                     Toast.makeText(this, "Note Updated..", Toast.LENGTH_SHORT).show()
 
                 }
-            }
-            else{
+            } else {
                 if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
                     val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
-                    val currentDate : String = sdf.format(Date())
+                    val currentDate: String = sdf.format(Date())
                     viewModel.addNote(Note(noteTitle, noteDescription, currentDate))
                     Toast.makeText(this, "Note Added..", Toast.LENGTH_SHORT).show()
 
