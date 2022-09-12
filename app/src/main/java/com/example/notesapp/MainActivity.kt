@@ -1,61 +1,97 @@
 package com.example.notesapp
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
+import android.util.AttributeSet
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.fragment.app.Fragment
 import com.example.notesapp.databinding.ActivityMainBinding
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
-    lateinit var noteRV: RecyclerView
-    lateinit var addFAB: FloatingActionButton
-    private lateinit var binding: ActivityMainBinding
-    lateinit var viewModel: NoteViewModel
 
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var bnTab : BottomNavigationView
+    lateinit var btAppBar : BottomAppBar
+    lateinit var addFAB : FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        noteRV = binding.idRVNotes
-        addFAB = binding.idFABAddNote
-        noteRV.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
 
-        val noteRVAdapter = NoteRVAdapter(this, this, this)
-        noteRV.adapter = noteRVAdapter
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModel::class.java)
-        viewModel.allNote.observe(this, Observer { list ->
-            list?.let {
-                noteRVAdapter.updateList(it)
+        val unCheckFragment = UncheckFragment()
+        val checkFragment = CheckFragment()
+        val deleteFragment = DeleteFragment()
+
+//        val btTab = binding.bnTab
+//        val iconView = btTab.getChildAt(2)
+//        iconView.scaleY = 1.5f
+//        iconView.scaleX = 1.5f
+//        final View iconView =
+//            menuView.getChildAt(2).findViewById(android.support.design.R.id.icon);
+//        iconView.setScaleY(1.5f);
+//        iconView.setScaleX(1.5f);
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragmentContent, unCheckFragment)
+            commit()
+        }
+        btAppBar = binding.bottomAppBar
+        bnTab = binding.bnTab
+
+        bnTab.background = null
+        bnTab.menu.getItem(2).isEnabled = false
+        bnTab.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.uncheckFragment -> {
+                    replaceFragmentBottomNavigation(unCheckFragment)
+                    true
+                }
+                R.id.checkFragment -> {
+                    replaceFragmentBottomNavigation(checkFragment)
+                    true
+                }
+                else -> {
+                    replaceFragmentBottomNavigation(deleteFragment)
+                    true
+                }
             }
-        })
+        }
+        addFAB = binding.fab
         addFAB.setOnClickListener {
-            val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
-            startActivity(intent)
-            this.finish()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.flFragmentContent, AddEditNoteFragment())
+                .commit()
+            //hideFloatingActionButton(addFAB)
         }
     }
 
-    override fun onNoteClick(note: Note) {
-        val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
-        intent.putExtra("noteType", "Edit")
-        intent.putExtra("noteTitle", note.noteTitle)
-        intent.putExtra("noteDescription", note.noteDescription)
-        intent.putExtra("noteID", note.id)
-        startActivity(intent)
-        this.finish()
+    private fun replaceFragmentBottomNavigation(tabFragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragmentContent, tabFragment)
+            addToBackStack(null)
+            commit()
+        }
+    }
+     fun hideFloatingActionButton(fab: FloatingActionButton) {
+        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as FloatingActionButton.Behavior?
+        if (behavior != null) {
+            behavior.isAutoHideEnabled = false
+        }
+        fab.hide()
     }
 
-    override fun onDeleteIconClick(note: Note) {
-        viewModel.deleteNote(note)
-        Toast.makeText(this, "${note.noteTitle} Deleted", Toast.LENGTH_SHORT).show()
+
+    fun showFloatingActionButton(fab: FloatingActionButton) {
+        fab.show()
+        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as FloatingActionButton.Behavior?
+        if (behavior != null) {
+            behavior.isAutoHideEnabled = true
+        }
     }
 }

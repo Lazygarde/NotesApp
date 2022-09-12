@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_shade_1"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVNotes"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/flFragmentContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black_shade_1"
-        tools:listitem="@layout/note_rv_item" />
+        app:layout_constraintBottom_toTopOf="@+id/bnTab"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fabCradleMargin="20dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:menu="@menu/menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/idFABAddNote"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/black_shade_2"
         android:src="@drawable/ic_add"
-        app:tint="@color/white" />
-</RelativeLayout>
+        app:layout_anchor="@id/bottomAppBar" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/idIVCheck"
+            android:id="@+id/idIVRestore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
@@ -22,7 +22,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:padding="4dp"
-            android:src="@drawable/ic_uncheck"
+            android:src="@drawable/ic_restore"
             app:tint="@color/white" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_toLeftOf="@id/idIVDelete"
-            android:layout_toRightOf="@+id/idIVCheck"
+            android:layout_toRightOf="@+id/idIVRestore"
             android:padding="4dp"
             android:text="Note Title"
             android:textColor="@color/white"
@@ -44,7 +44,7 @@
             android:layout_below="@id/tdTVNoteTitle"
             android:layout_margin="4dp"
             android:layout_toLeftOf="@id/idIVDelete"
-            android:layout_toRightOf="@id/idIVCheck"
+            android:layout_toRightOf="@id/idIVRestore"
             android:padding="4dp"
             android:text="TimeStamp"
             android:textColor="@color/white" />

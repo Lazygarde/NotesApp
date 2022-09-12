@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_shade_1"
+    tools:context=".MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVDeletedNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_shade_1"
+        tools:listitem="@layout/deleted_note_rv_item" />
+</RelativeLayout>

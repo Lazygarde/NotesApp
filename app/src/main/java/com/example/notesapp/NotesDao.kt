@@ -15,6 +15,12 @@ interface NotesDao {
     @Delete
     suspend fun delete(note: Note)
 
-    @Query("Select * from notesTable order by id ASC")
-    fun getAllNotes(): LiveData<List<Note>>
+    @Query("Select * from notesTable Where isDeleted = 0 and isDone = 0")
+    fun getListNotes(): LiveData<List<Note>>
+
+    @Query("Select * from notesTable Where isDeleted = 0 and isDone = 1")
+    fun getDoneNotes(): LiveData<List<Note>>
+
+    @Query("Select * from notesTable Where isDeleted = 1")
+    fun getDeletedNotes(): LiveData<List<Note>>
 }

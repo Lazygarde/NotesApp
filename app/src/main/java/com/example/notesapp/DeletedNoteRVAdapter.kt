@@ -5,28 +5,28 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.databinding.NoteRvItemBinding
+import com.example.notesapp.databinding.DeletedNoteRvItemBinding
 
-class NoteRVAdapter(
-    val context: UncheckFragment,
+class DeletedNoteRVAdapter(
+    val context: DeleteFragment,
     val noteClickInterface: NoteClickInterface,
     val noteClickDeleteInterface: NoteClickDeleteInterface,
     val receiveToGarbage: (Note) -> Unit
-) : RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<DeletedNoteRVAdapter.ViewHolder>() {
 
     private val allNotes = ArrayList<Note>()
 
-    inner class ViewHolder(binding: NoteRvItemBinding) :
+    inner class ViewHolder(binding: DeletedNoteRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val noteTV: TextView = binding.tdTVNoteTitle
         val timeTV: TextView = binding.tdTVTimeStamp
         val deleteTV: ImageView = binding.idIVDelete
-        val checkTV: ImageView = binding.idIVCheck
+        val restoreTV: ImageView = binding.idIVRestore
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            NoteRvItemBinding.inflate(
+            DeletedNoteRvItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -34,18 +34,15 @@ class NoteRVAdapter(
         )
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.noteTV.text = allNotes[position].noteTitle
         holder.timeTV.text = "Last Update: " + allNotes[position].timeStamp
-        holder.checkTV.setOnClickListener {
-            allNotes[position].isDone = 1
+        holder.restoreTV.setOnClickListener {
+            allNotes[position].isDeleted = 0
             sendData(allNotes[position])
         }
         holder.deleteTV.setOnClickListener {
-            allNotes[position].isDeleted = 1
-            sendData(allNotes[position])
-            //noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
+            noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
         }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
@@ -64,13 +61,5 @@ class NoteRVAdapter(
     private fun sendData(note:Note){
         receiveToGarbage(note)
     }
-}
-
-interface NoteClickDeleteInterface {
-    fun onDeleteIconClick(note: Note)
-}
-
-interface NoteClickInterface {
-    fun onNoteClick(note: Note)
 }
 
