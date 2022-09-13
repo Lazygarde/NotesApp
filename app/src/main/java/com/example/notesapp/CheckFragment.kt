@@ -1,34 +1,32 @@
 package com.example.notesapp
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.lifecycle.Observer
-import com.example.notesapp.databinding.FragmentDeleteBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.notesapp.databinding.FragmentCheckBinding
 
 class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
     lateinit var noteRV: RecyclerView
-    private lateinit var binding: FragmentDeleteBinding
+    private lateinit var binding: FragmentCheckBinding
     lateinit var viewModel: NoteViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDeleteBinding.inflate(inflater)
+        binding = FragmentCheckBinding.inflate(inflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        noteRV = binding.idRVDeletedNotes
+        noteRV = binding.idRVDoneNotes
         noteRV.layoutManager = LinearLayoutManager(context)
 
         val deletedNoteRVAdapter = DoneNoteRVAdapter(this, this, this) { receiveToGarbage(it) }
@@ -40,6 +38,7 @@ class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
             }
         })
     }
+
     override fun onNoteClick(note: Note) {
         val bundle = Bundle()
         bundle.putString("noteType", "Edit")
@@ -55,7 +54,8 @@ class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
     override fun onDeleteIconClick(note: Note) {
         viewModel.deleteNote(note)
     }
-    private fun receiveToGarbage(note: Note){
+
+    private fun receiveToGarbage(note: Note) {
         viewModel.updateNote(note)
     }
 }

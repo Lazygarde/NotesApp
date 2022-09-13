@@ -13,19 +13,9 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
-        android:text="Recently Deleted"
+        android:text="Setting"
         android:textColor="@color/pink"
         android:textSize="40sp"
         android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVDeletedNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:listitem="@layout/deleted_note_rv_item" />
-
 
 </RelativeLayout>

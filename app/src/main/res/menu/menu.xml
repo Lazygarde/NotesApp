@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/uncheckFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_list"
-        android:title=""/>
+        android:title="" />
     <item
         android:id="@+id/checkFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_check"
-        android:title=""/>
+        android:title="" />
 
-    <item android:id="@+id/placeholder"
+    <item
+        android:id="@+id/placeholder"
+        android:enabled="true"
         android:title="" />
     <item
         android:id="@+id/deleteFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_delete"
-        android:title=""/>
+        android:title="" />
 
     <item
-        android:id="@+id/moreInfor"
-        android:title=""
-        android:icon="@drawable/ic_setting"/>
+        android:id="@+id/setting"
+        android:enabled="true"
+        android:icon="@drawable/ic_setting"
+        android:title="" />
 </menu>

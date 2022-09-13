@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
     val listNote: LiveData<List<Note>>
-    val deletedNote : LiveData<List<Note>>
-    val doneNote : LiveData<List<Note>>
+    val deletedNote: LiveData<List<Note>>
+    val doneNote: LiveData<List<Note>>
     private val repository: NoteRepository
 
     init {

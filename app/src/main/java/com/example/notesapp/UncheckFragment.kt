@@ -1,6 +1,5 @@
 package com.example.notesapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,10 +25,10 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
         binding = FragmentUncheckBinding.inflate(inflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         noteRV = binding.idRVNotes
-        //addFAB = binding.idFABAddNote
         noteRV.layoutManager = LinearLayoutManager(context)
 
         val noteRVAdapter = NoteRVAdapter(this, this, this) {
@@ -44,6 +43,7 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
         })
 
     }
+
     override fun onNoteClick(note: Note) {
         val bundle = Bundle()
         bundle.putString("noteType", "Edit")
@@ -59,7 +59,8 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
     override fun onDeleteIconClick(note: Note) {
         viewModel.deleteNote(note)
     }
-    private fun receiveToGarbage(note: Note){
+
+    private fun receiveToGarbage(note: Note) {
         viewModel.updateNote(note)
     }
 }

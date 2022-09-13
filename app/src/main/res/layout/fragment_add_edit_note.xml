@@ -1,42 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_shade_1"
-    tools:context=".AddEditNoteActivity">
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlEditToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/ivICBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            app:tint="#312161" />
+
+        <TextView
+            android:id="@+id/tvDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivICBack"
+            android:text="Notes"
+            android:textColor="#312161"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivICCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_check_ncir"
+            app:tint="#312161" />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/idEdtNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Note Title"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:layout_below="@+id/rlEditToolBar"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Title"
+        android:textColor="#8962F8"
+        android:textColorHint="#E7DFFF"
+        android:textSize="48sp" />
 
     <EditText
         android:id="@+id/idEdtNoteDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/idBtnAddUpdate"
         android:layout_below="@id/idEdtNoteTitle"
-        android:layout_margin="10dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="20dp"
         android:gravity="start|top"
-        android:hint="Enter Note Description"
+        android:hint="Description"
         android:inputType="textMultiLine"
         android:singleLine="false"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="#8962F8"
+        android:textColorHint="#E7DFFF"
+        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/idBtnAddUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/cuctom_button_back"
-        android:text="Button"
-        android:textAllCaps="false" />
 
 </RelativeLayout>

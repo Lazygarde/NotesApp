@@ -22,6 +22,7 @@ class DeletedNoteRVAdapter(
         val timeTV: TextView = binding.tdTVTimeStamp
         val deleteTV: ImageView = binding.idIVDelete
         val restoreTV: ImageView = binding.idIVRestore
+        val notesTV: TextView = binding.tdTVNotes
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,11 +37,12 @@ class DeletedNoteRVAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.noteTV.text = allNotes[position].noteTitle
-        holder.timeTV.text = "Last Update: " + allNotes[position].timeStamp
+        holder.timeTV.text = allNotes[position].timeStamp
         holder.restoreTV.setOnClickListener {
             allNotes[position].isDeleted = 0
             sendData(allNotes[position])
         }
+        holder.notesTV.text = allNotes[position].noteDescription
         holder.deleteTV.setOnClickListener {
             noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
         }
@@ -58,7 +60,8 @@ class DeletedNoteRVAdapter(
         allNotes.addAll(newList)
         notifyDataSetChanged()
     }
-    private fun sendData(note:Note){
+
+    private fun sendData(note: Note) {
         receiveToGarbage(note)
     }
 }

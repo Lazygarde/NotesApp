@@ -3,65 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardBackgroundColor="@color/black_shade_2"
-    app:cardCornerRadius="5dp"
+    android:layout_marginTop="10dp"
+    android:backgroundTint="@color/lightPink"
+    app:cardCornerRadius="30dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/idIVCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tdTVNotes"
             android:layout_alignParentEnd="false"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
             android:padding="4dp"
             android:src="@drawable/ic_check"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
 
         <TextView
             android:id="@+id/tdTVNoteTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_toLeftOf="@id/idIVDelete"
-            android:layout_toRightOf="@+id/idIVCheck"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
             android:padding="4dp"
             android:text="Note Title"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textColor="#312161"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tdTVNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tdTVNoteTitle"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:padding="4dp"
+            android:text="Notes"
+            android:textColor="#BE77B4"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/tdTVTimeStamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tdTVNoteTitle"
-            android:layout_margin="4dp"
-            android:layout_toLeftOf="@id/idIVDelete"
-            android:layout_toRightOf="@id/idIVCheck"
+            android:layout_below="@id/tdTVNotes"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:padding="4dp"
             android:text="TimeStamp"
-            android:textColor="@color/white" />
+            android:textColor="#BE77B4"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/idIVDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tdTVNotes"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
             android:padding="4dp"
             android:src="@drawable/ic_delete"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
     </RelativeLayout>
 
 
