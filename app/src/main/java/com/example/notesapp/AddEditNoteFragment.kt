@@ -10,24 +10,28 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.notesapp.data.Note
+import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentAddEditNoteBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class AddEditNoteFragment : Fragment() {
-    lateinit var binding: FragmentAddEditNoteBinding
-    lateinit var noteTitleEdt: EditText
-    lateinit var noteDescriptionEdt: EditText
-    lateinit var backIV: ImageView
-    lateinit var viewModel: NoteViewModel
-    lateinit var checkIV: ImageView
-    lateinit var doneTV : TextView
-    var noteID = 0
+    private lateinit var binding: FragmentAddEditNoteBinding
+    private lateinit var noteTitleEdt: EditText
+    private lateinit var noteDescriptionEdt: EditText
+    private lateinit var backIV: ImageView
+    private lateinit var viewModel: NoteViewModel
+    private lateinit var checkIV: ImageView
+    private lateinit var doneTV: TextView
+    private lateinit var noteType : String
+    private var noteID: Int = 0
+    private var noteBackground: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddEditNoteBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -44,53 +48,69 @@ class AddEditNoteFragment : Fragment() {
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
 
         val bundle = this.arguments
-        val noteType = bundle?.getString("noteType")
-        if (noteType.equals("Edit")) {
-            val noteTitle = bundle?.getString("noteTitle")
-            val noteDesc = bundle?.getString("noteDescription")
+        noteType = bundle?.getString("noteType").toString()
+        if (noteType == "Edit") {
             noteID = bundle?.getInt("noteID", 0)!!
-            //addUpdateBtn.text = "Update Note"
-            noteTitleEdt.setText(noteTitle)
-            noteDescriptionEdt.setText(noteDesc)
-        } else {
-            //addUpdateBtn.text = "Save Note"
+            noteBackground = bundle.getInt("noteBackground", R.color.colorRandomBG9)
+            noteTitleEdt.setText(bundle.getString("noteTitle"))
+            noteDescriptionEdt.setText(bundle.getString("noteDescription"))
         }
 
         checkIV.setOnClickListener {
             (activity as MainActivity).hideKeyBoard()
         }
 
-        doneTV.setOnClickListener{
-            (activity as MainActivity).hideKeyBoard()
+        doneTV.setOnClickListener {
+            backOnClick()
         }
 
         backIV.setOnClickListener {
-            val noteTitle = noteTitleEdt.text.toString()
-            val noteDescription = noteDescriptionEdt.text.toString()
-            if (noteType.equals("Edit")) {
-                if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
-                    val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm", Locale.getDefault())
-                    val currentDate: String = sdf.format(Date())
-                    val updateNote = Note(noteTitle, noteDescription, currentDate, 0, 0)
-                    updateNote.id = noteID
-                    viewModel.updateNote(updateNote)
-                    Toast.makeText(activity, "Note Updated..", Toast.LENGTH_SHORT).show()
-
-                }
-            } else {
-                if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
-                    val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm", Locale.getDefault())
-                    val currentDate: String = sdf.format(Date())
-                    viewModel.addNote(Note(noteTitle, noteDescription, currentDate, 0, 0))
-                    Toast.makeText(activity, "Note Added..", Toast.LENGTH_SHORT).show()
-                }
-            }
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragmentContent, UncheckFragment::class.java, null)
-                .addToBackStack(null)
-                .commit()
-            (activity as MainActivity).btAppBar.visibility = View.VISIBLE
-            (activity as MainActivity).showFloatingActionButton((activity as MainActivity).addFAB)
+            backOnClick()
         }
+    }
+
+    private fun backOnClick(){
+        val noteTitle = noteTitleEdt.text.toString()
+        val noteDescription = noteDescriptionEdt.text.toString()
+        val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm", Locale.getDefault())
+        val currentDate: String = sdf.format(Date())
+        if (noteType == "Edit") {
+            if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
+                val updateNote =
+                    Note(noteTitle, noteDescription, currentDate, noteBackground, 0, 0)
+                updateNote.id = noteID
+                viewModel.updateNote(updateNote)
+                Toast.makeText(activity, "Note Updated..", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
+                viewModel.addNote(
+                    Note(
+                        noteTitle,
+                        noteDescription,
+                        currentDate,
+                        getRanDomColor(),
+                        0,
+                        0
+                    )
+                )
+                Toast.makeText(activity, "Note Added..", Toast.LENGTH_SHORT).show()
+            }
+        }
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.flFragmentContent, UncheckFragment::class.java, null)
+            .addToBackStack(null)
+            .commit()
+        (activity as MainActivity).btAppBar.visibility = View.VISIBLE
+        (activity as MainActivity).showFloatingActionButton((activity as MainActivity).addFAB)
+    }
+
+    private fun getRanDomColor(): Int {
+        val listColor = listOf(
+            R.color.colorRandomBG7,
+            R.color.colorRandomBG8,
+            R.color.colorRandomBG9
+        )
+        return listColor.random()
     }
 }

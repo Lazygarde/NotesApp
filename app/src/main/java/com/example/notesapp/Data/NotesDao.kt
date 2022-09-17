@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.example.notesapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -23,4 +23,5 @@ interface NotesDao {
 
     @Query("Select * from notesTable Where isDeleted = 1")
     fun getDeletedNotes(): LiveData<List<Note>>
+
 }

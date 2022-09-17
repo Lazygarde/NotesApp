@@ -2,6 +2,7 @@ package com.example.notesapp
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -11,7 +12,6 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var bnTab: BottomNavigationView
@@ -20,17 +20,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragmentContent, UncheckFragment())
-            addToBackStack(null)
-            commit()
-        }
         addFAB = binding.fab
         btAppBar = binding.bottomAppBar
         bnTab = binding.bnTab
+
+        transaction(UncheckFragment())
+
+        btAppBar.visibility = View.VISIBLE
         showFloatingActionButton(addFAB)
+
+        setUpButtonNav()
+        addFAB.setOnClickListener {
+            transaction(AddEditNoteFragment())
+        }
+        setContentView(binding.root)
+    }
+
+    private fun setUpButtonNav(){
         bnTab.background = null
         bnTab.menu.getItem(2).isEnabled = false
         bnTab.setOnItemSelectedListener { item ->
@@ -53,11 +60,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        addFAB.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.flFragmentContent, AddEditNoteFragment())
-                .addToBackStack(null)
-                .commit()
+    }
+
+    private fun transaction(fragment: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragmentContent, fragment)
+            addToBackStack(null)
+            commit()
         }
     }
 

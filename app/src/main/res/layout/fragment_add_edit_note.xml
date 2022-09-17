@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -9,7 +10,7 @@
         android:id="@+id/rlEditToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp">
 
         <ImageView
@@ -19,18 +20,20 @@
             android:layout_alignParentEnd="false"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_back"
-            app:tint="#312161" />
+            app:tint="#312161"
+            android:contentDescription="@string/no" />
 
         <TextView
             android:id="@+id/tvDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/ivICBack"
-            android:text="Notes"
+            android:layout_toEndOf="@+id/ivICBack"
+            android:text="@string/notes"
             android:textColor="#312161"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/ivICCheck"
@@ -38,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_check_ncir"
+            android:contentDescription="@string/no"
+            android:src="@drawable/ic_check_no_circle"
             app:tint="#312161" />
     </RelativeLayout>
 
@@ -50,10 +54,13 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="Title"
+        android:hint="@string/title"
+        android:background="@null"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="48sp" />
+        android:textSize="48sp"
+        android:importantForAutofill="no"
+        android:inputType="none" />
 
     <EditText
         android:id="@+id/idEdtNoteDescription"
@@ -62,14 +69,16 @@
         android:layout_below="@id/idEdtNoteTitle"
         android:layout_marginStart="31dp"
         android:layout_marginTop="14dp"
+        android:background="@null"
         android:layout_marginEnd="20dp"
         android:gravity="start|top"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="textMultiLine"
         android:singleLine="false"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:importantForAutofill="no" />
 
 
 </RelativeLayout>

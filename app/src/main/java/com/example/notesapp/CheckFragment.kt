@@ -1,25 +1,39 @@
 package com.example.notesapp
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.PopupMenu
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesapp.adapter.DoneNoteRVAdapter
+import com.example.notesapp.adapter.NoteClickDeleteInterface
+import com.example.notesapp.adapter.NoteClickInterface
+import com.example.notesapp.data.Note
+import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentCheckBinding
 
 class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
-    lateinit var noteRV: RecyclerView
+    private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentCheckBinding
-    lateinit var viewModel: NoteViewModel
+    private lateinit var viewModel: NoteViewModel
+    private lateinit var doneNoteRVAdapter: DoneNoteRVAdapter
+    private lateinit var sortIV: ImageView
+    private lateinit var popupMenu: PopupMenu
+    private lateinit var doneNote: LiveData<List<Note>>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCheckBinding.inflate(inflater)
         return binding.root
     }
@@ -27,16 +41,19 @@ class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         noteRV = binding.idRVDoneNotes
+        sortIV = binding.ivSort
         noteRV.layoutManager = LinearLayoutManager(context)
 
-        val deletedNoteRVAdapter = DoneNoteRVAdapter(this, this, this) { receiveToGarbage(it) }
-        noteRV.adapter = deletedNoteRVAdapter
+        doneNoteRVAdapter = DoneNoteRVAdapter(this, this) {
+            receiveToGarbage(it)
+        }
+        noteRV.adapter = doneNoteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-        viewModel.doneNote.observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
-                deletedNoteRVAdapter.updateList(it)
-            }
-        })
+        doneNote = viewModel.doneNote
+        doneNote.observe(viewLifecycleOwner) { list ->
+            doneNoteRVAdapter.updateList(list)
+        }
+        onSortIVClick()
     }
 
     override fun onNoteClick(note: Note) {
@@ -45,11 +62,56 @@ class CheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
         bundle.putString("noteTitle", note.noteTitle)
         bundle.putString("noteDescription", note.noteDescription)
         bundle.putInt("noteID", note.id)
+        bundle.putInt("noteBackground", note.backGroundColor)
         parentFragmentManager.beginTransaction()
             .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
             .addToBackStack(null)
             .commit()
     }
+
+    private fun onSortIVClick() {
+        sortIV.setOnClickListener {
+            popupMenu = PopupMenu((activity as MainActivity), sortIV)
+            popupMenu.setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.sortById -> {
+                        doneNote.observe(viewLifecycleOwner) { allNotes ->
+                            val sortedList = allNotes.sortedBy { list ->
+                                list.id
+                            }
+                            doneNoteRVAdapter.updateList(sortedList)
+                        }
+                        Toast.makeText(activity, "Sorted by id", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.sortByTitle -> {
+                        doneNote.observe(viewLifecycleOwner) { allNotes ->
+                            val sortedList = allNotes.sortedBy { list ->
+                                list.noteTitle
+                            }
+                            doneNoteRVAdapter.updateList(sortedList)
+                        }
+                        Toast.makeText(activity, "Sorted by title", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.sortByDate -> {
+                        doneNote.observe(viewLifecycleOwner) { allNotes ->
+                            val sortedList = allNotes.sortedBy { list ->
+                                list.timeStamp
+                            }
+                            doneNoteRVAdapter.updateList(sortedList)
+                        }
+                        Toast.makeText(activity, "Sorted by date", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.inflate(R.menu.colormenu)
+            popupMenu.show()
+        }
+    }
+
 
     override fun onDeleteIconClick(note: Note) {
         viewModel.deleteNote(note)

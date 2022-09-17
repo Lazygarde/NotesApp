@@ -16,4 +16,23 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="black_shade_1">#0e2433</color>
     <color name="black_shade_2">#1C4966</color>
+
+    <color name="colorRandomBG1">#FC3644</color>
+    <color name="colorRandomBG2">#A990DD</color>
+    <color name="colorRandomBG3">#FECB4D</color>
+    <color name="colorRandomBG4">#F29C98</color>
+    <color name="colorRandomBG5">#FA4E85</color>
+    <color name="colorRandomBG6">#8962F8</color>
+
+    <color name="colorRandomBG7">#FFC5F7</color>
+    <color name="colorRandomBG8">#FEFFC5</color>
+    <color name="colorRandomBG9">#E7C1FF</color>
+
+
+    <color name="ios_blue">#FF037BFF</color>
+    <color name="ios_red">#FFFD4A2E</color>
+    <color name="ios_grey">#FFC6C6C6</color>
+    <color name="ios_bg">#FFE9E9E9</color>
+    <color name="ios_btn_normal">#FFE9E9E9</color>
+    <color name="ios_btn_press">#FFCDCDCD</color>
 </resources>

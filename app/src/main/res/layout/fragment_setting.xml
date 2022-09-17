@@ -13,7 +13,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
-        android:text="Setting"
+        android:text="@string/setting"
         android:textColor="@color/pink"
         android:textSize="40sp"
         android:textStyle="bold" />

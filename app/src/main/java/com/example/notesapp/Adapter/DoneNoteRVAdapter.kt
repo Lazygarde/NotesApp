@@ -1,33 +1,36 @@
-package com.example.notesapp
+package com.example.notesapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.databinding.NoteRvItemBinding
+import com.example.notesapp.CheckFragment
+import com.example.notesapp.data.Note
+import com.example.notesapp.databinding.DoneNoteRvItemBinding
 
-class NoteRVAdapter(
-    val context: UncheckFragment,
-    val noteClickInterface: NoteClickInterface,
-    val noteClickDeleteInterface: NoteClickDeleteInterface,
+class DoneNoteRVAdapter(
+    val context: CheckFragment,
+    private val noteClickInterface: NoteClickInterface,
     val receiveToGarbage: (Note) -> Unit
-) : RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<DoneNoteRVAdapter.ViewHolder>() {
 
     private val allNotes = ArrayList<Note>()
 
-    inner class ViewHolder(binding: NoteRvItemBinding) :
+    inner class ViewHolder(binding: DoneNoteRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val noteTV: TextView = binding.tdTVNoteTitle
         val timeTV: TextView = binding.tdTVTimeStamp
         val deleteTV: ImageView = binding.idIVDelete
         val checkTV: ImageView = binding.idIVCheck
         val notesTV: TextView = binding.tdTVNotes
+        val noteContainer : CardView = binding.noteContainer
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            NoteRvItemBinding.inflate(
+            DoneNoteRvItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -38,15 +41,15 @@ class NoteRVAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.noteTV.text = allNotes[position].noteTitle
         holder.timeTV.text = allNotes[position].timeStamp
-        holder.checkTV.setOnClickListener {
-            allNotes[position].isDone = 1
-            sendData(allNotes[position])
-        }
-        holder.notesTV.text = allNotes[position].noteDescription
         holder.deleteTV.setOnClickListener {
             allNotes[position].isDeleted = 1
             sendData(allNotes[position])
-            //noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
+        }
+        holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
+        holder.notesTV.text = allNotes[position].noteDescription
+        holder.checkTV.setOnClickListener {
+            allNotes[position].isDone = 0
+            sendData(allNotes[position])
         }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
@@ -66,13 +69,5 @@ class NoteRVAdapter(
     private fun sendData(note: Note) {
         receiveToGarbage(note)
     }
-}
-
-interface NoteClickDeleteInterface {
-    fun onDeleteIconClick(note: Note)
-}
-
-interface NoteClickInterface {
-    fun onNoteClick(note: Note)
 }
 

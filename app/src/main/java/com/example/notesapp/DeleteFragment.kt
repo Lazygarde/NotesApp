@@ -1,25 +1,31 @@
 package com.example.notesapp
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesapp.adapter.DeletedNoteRVAdapter
+import com.example.notesapp.adapter.NoteClickDeleteInterface
+import com.example.notesapp.adapter.NoteClickInterface
+import com.example.notesapp.data.Note
+import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentDeleteBinding
 
 class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
-    lateinit var noteRV: RecyclerView
+    private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentDeleteBinding
-    lateinit var viewModel: NoteViewModel
+    private lateinit var viewModel: NoteViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDeleteBinding.inflate(inflater)
         return binding.root
     }
@@ -29,27 +35,52 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface 
         noteRV = binding.idRVDeletedNotes
         noteRV.layoutManager = LinearLayoutManager(context)
 
-        val deletedNoteRVAdapter = DeletedNoteRVAdapter(this, this, this) { receiveToGarbage(it) }
+        val deletedNoteRVAdapter = DeletedNoteRVAdapter(this, this, this) {
+            receiveToGarbage(it)
+        }
         noteRV.adapter = deletedNoteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-        viewModel.deletedNote.observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
-                deletedNoteRVAdapter.updateList(it)
-            }
-        })
+        viewModel.deletedNote.observe(viewLifecycleOwner) { list ->
+            deletedNoteRVAdapter.updateList(list)
+        }
     }
 
     override fun onNoteClick(note: Note) {
-        val bundle = Bundle()
-        bundle.putString("noteType", "Edit")
-        bundle.putString("noteTitle", note.noteTitle)
-        bundle.putString("noteDescription", note.noteDescription)
-        bundle.putInt("noteID", note.id)
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
-            .addToBackStack(null)
-            .commit()
+        val view = View.inflate((activity as MainActivity), R.layout.alert_dialog, null)
+
+        val builder = AlertDialog.Builder((activity as MainActivity))
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        val cancelBtn = view.findViewById<TextView>(R.id.cancel_btn)
+        val recoverBtn = view.findViewById<TextView>(R.id.recover_btn)
+        cancelBtn.setOnClickListener {
+            dialog.dismiss()
+        }
+        recoverBtn.setOnClickListener{
+
+            dialog.dismiss()
+            note.isDeleted = 0
+            receiveToGarbage(note)
+            val bundle = Bundle()
+            bundle.putString("noteType", "Edit")
+            bundle.putString("noteTitle", note.noteTitle)
+            bundle.putString("noteDescription", note.noteDescription)
+            bundle.putInt("noteID", note.id)
+            bundle.putInt("noteBackground", note.backGroundColor)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
+                .addToBackStack(null)
+                .commit()
+        }
     }
+
+
+
 
     override fun onDeleteIconClick(note: Note) {
         viewModel.deleteNote(note)
