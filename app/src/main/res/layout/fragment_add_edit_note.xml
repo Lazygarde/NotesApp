@@ -54,13 +54,13 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/title"
         android:background="@null"
+        android:hint="@string/title"
+        android:importantForAutofill="no"
+        android:inputType="none"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="48sp"
-        android:importantForAutofill="no"
-        android:inputType="none" />
+        android:textSize="48sp" />
 
     <EditText
         android:id="@+id/idEdtNoteDescription"

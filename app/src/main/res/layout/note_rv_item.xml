@@ -22,10 +22,10 @@
             android:layout_alignParentEnd="false"
             android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/no"
             android:padding="4dp"
             android:src="@drawable/ic_uncheck"
-            app:tint="@color/black"
-            android:contentDescription="@string/no" />
+            app:tint="@color/black" />
 
         <TextView
             android:id="@+id/tdTVNoteTitle"
@@ -34,6 +34,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
+            android:maxLines="3"
             android:padding="4dp"
             android:text="@string/noteTitle"
             android:textColor="#312161"
@@ -48,8 +49,8 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:padding="4dp"
             android:maxLines="5"
+            android:padding="4dp"
             android:text="@string/notes"
             android:textColor="#BE77B4"
             android:textSize="22sp" />
@@ -77,10 +78,10 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
+            android:contentDescription="@string/no"
             android:padding="4dp"
             android:src="@drawable/ic_delete"
-            app:tint="@color/black"
-            android:contentDescription="@string/no" />
+            app:tint="@color/black" />
     </RelativeLayout>
 
 

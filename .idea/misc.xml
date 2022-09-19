@@ -22,12 +22,15 @@
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_add_circle.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_back.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.1365" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_call.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_check.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_check_ncir.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_check_no_circle.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_delete.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_list.xml" value="0.1365" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_mail.xml" value="0.1345" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_person.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_restore.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_setting.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_sort.xml" value="0.2595" />
@@ -38,14 +41,15 @@
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/iosdialog_left_btn_selector.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/menu.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_add_edit_note.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/alert_dialog.xml" value="0.3446676970633694" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/deleted_note_rv_item.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/deleted_note_rv_item.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/done_note_rv_item.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_add_edit_note.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_check.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_delete.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_setting.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_edit_profile.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_uncheck.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/newproject.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/note_rv_item.xml" value="0.22" />

@@ -10,7 +10,8 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/flFragmentContent"
         android:layout_width="match_parent"
-        android:layout_height="675dp" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
-            android:background="@android:color/transparent"
+            android:background="#00000000"
             android:theme="@style/BaseTheme"
             app:itemIconTint="#8962F8"
             app:menu="@menu/menu" />

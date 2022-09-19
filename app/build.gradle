@@ -46,7 +46,7 @@ dependencies {
 
     // Dependencies for working with Architecture components
     // You'll probably have to update the version numbers in build.gradle (Project)
-
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
 
     // Room components
     implementation "androidx.room:room-ktx:2.4.3"

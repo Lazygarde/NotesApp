@@ -13,12 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
         android:text="@string/notes"
         android:textColor="@color/pink"
         android:textSize="40sp"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/toolBar"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="#ffc6c6c6" />
 
     <ImageView
         android:id="@+id/ivSort"
@@ -27,9 +35,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
+        android:contentDescription="@string/no"
         android:src="@drawable/ic_sort"
-        app:tint="@color/black"
-        android:contentDescription="@string/no" />
+        app:tint="@color/black" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVNotes"
@@ -37,6 +45,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolBar"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         tools:listitem="@layout/note_rv_item" />
 

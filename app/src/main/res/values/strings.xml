@@ -11,7 +11,14 @@
     <string name="recentlyDeleted">Recently Deleted</string>
     <string name="setting">Setting</string>
     <string name="recover">Recover</string>
+    <string name="yourName">Your name</string>
+    <string name="save">Save</string>
+    <string name="phoneNumber">Phone number</string>
+    <string name="email">Email</string>
+    <string name="editProfile">Edit profile</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
+    <string name="yourProfile">Your profile</string>
     <string name="recentlyDeletedNote">Recently Deleted Note</string>
     <string name="dialogMessage">Recently deleted notes can\'t be edited.\nTo edit this note, you\'ll need to recover it.</string>
 </resources>
