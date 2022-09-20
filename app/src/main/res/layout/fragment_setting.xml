@@ -20,10 +20,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
         android:layout_below="@+id/toolBar"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:background="#ffc6c6c6" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/yourProfile"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_person" />
@@ -53,8 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/yourProfile"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="43dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/yourName"
         android:textColor="#A990DD"
         android:textSize="20sp" />
@@ -64,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/personIV"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_call" />
@@ -74,8 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/personIV"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="23dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/phoneNumber"
         android:textColor="#A990DD"
         android:textSize="20sp" />
@@ -85,17 +87,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/callIV"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_mail" />
+        android:src="@drawable/ic_mail"
+        android:contentDescription="@string/no" />
 
     <TextView
         android:id="@+id/mailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/callIV"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="23dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/email"
         android:textColor="#A990DD"
         android:textSize="20sp" />
