@@ -6,14 +6,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.UncheckFragment
 import com.example.notesapp.data.Note
 import com.example.notesapp.databinding.NoteRvItemBinding
+import com.example.notesapp.fragment.UncheckFragment
+import com.example.notesapp.inter.NoteClickInterface
+import com.example.notesapp.inter.UpdateNoteInterface
 
 class NoteRVAdapter(
     val context: UncheckFragment,
     private val noteClickInterface: NoteClickInterface,
-    val receiveToGarbage: (Note) -> Unit
+    private val updateNoteInterface: UpdateNoteInterface
 ) : RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
 
     private val allNotes = ArrayList<Note>()
@@ -43,14 +45,14 @@ class NoteRVAdapter(
         holder.timeTV.text = allNotes[position].timeStamp
         holder.checkTV.setOnClickListener {
             allNotes[position].isDone = 1
-            sendData(allNotes[position])
+            updateNoteInterface.onUpdateNote(allNotes[position])
         }
 
         holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
         holder.notesTV.text = allNotes[position].noteDescription
         holder.deleteTV.setOnClickListener {
             allNotes[position].isDeleted = 1
-            sendData(allNotes[position])
+            updateNoteInterface.onUpdateNote(allNotes[position])
         }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
@@ -66,16 +68,4 @@ class NoteRVAdapter(
         allNotes.addAll(newList)
         notifyDataSetChanged()
     }
-
-    private fun sendData(note: Note) {
-        receiveToGarbage(note)
-    }
-}
-
-interface NoteClickDeleteInterface {
-    fun onDeleteIconClick(note: Note)
-}
-
-interface NoteClickInterface {
-    fun onNoteClick(note: Note)
 }

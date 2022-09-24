@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.example.notesapp.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import com.example.notesapp.MainActivity
+import com.example.notesapp.R
 import com.example.notesapp.constants.Keys
 import com.example.notesapp.databinding.FragmentSettingBinding
 import com.example.notesapp.model.User

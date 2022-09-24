@@ -4,12 +4,12 @@
         android:id="@+id/uncheckFragment"
         android:enabled="true"
         android:icon="@drawable/ic_list"
-        android:title="" />
+        android:title="@string/notes" />
     <item
         android:id="@+id/checkFragment"
         android:enabled="true"
         android:icon="@drawable/ic_check"
-        android:title="" />
+        android:title="@string/done" />
 
     <item
         android:id="@+id/placeholder"
@@ -19,11 +19,11 @@
         android:id="@+id/deleteFragment"
         android:enabled="true"
         android:icon="@drawable/ic_delete"
-        android:title="" />
+        android:title="@string/deleted" />
 
     <item
         android:id="@+id/setting"
         android:enabled="true"
         android:icon="@drawable/ic_setting"
-        android:title="" />
+        android:title="@string/setting" />
 </menu>

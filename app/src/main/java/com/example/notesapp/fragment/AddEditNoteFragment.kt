@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.example.notesapp.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.notesapp.MainActivity
+import com.example.notesapp.R
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentAddEditNoteBinding

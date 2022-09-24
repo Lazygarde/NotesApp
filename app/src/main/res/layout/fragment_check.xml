@@ -39,6 +39,14 @@
         android:src="@drawable/ic_sort"
         app:tint="@color/black" />
 
+    <ImageView
+        android:id="@+id/addNoteIV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="70dp"
+        android:src="@drawable/done_note"
+        android:contentDescription="@string/no" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVDoneNotes"
         android:layout_width="match_parent"
@@ -46,7 +54,6 @@
         android:layout_below="@+id/toolBar"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
-        tools:listitem="@layout/done_note_rv_item" />
+        android:layout_marginRight="20dp" />
 
 </RelativeLayout>

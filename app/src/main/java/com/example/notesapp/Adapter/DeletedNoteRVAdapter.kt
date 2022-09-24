@@ -6,15 +6,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.DeleteFragment
 import com.example.notesapp.data.Note
 import com.example.notesapp.databinding.DeletedNoteRvItemBinding
+import com.example.notesapp.fragment.DeleteFragment
+import com.example.notesapp.inter.NoteClickDeleteInterface
+import com.example.notesapp.inter.NoteClickInterface
+import com.example.notesapp.inter.UpdateNoteInterface
 
 class DeletedNoteRVAdapter(
     val context: DeleteFragment,
     private val noteClickInterface: NoteClickInterface,
     private val noteClickDeleteInterface: NoteClickDeleteInterface,
-    val receiveToGarbage: (Note) -> Unit
+    private val updateNoteInterface: UpdateNoteInterface
 ) : RecyclerView.Adapter<DeletedNoteRVAdapter.ViewHolder>() {
 
     private val allNotes = ArrayList<Note>()
@@ -44,7 +47,7 @@ class DeletedNoteRVAdapter(
         holder.timeTV.text = allNotes[position].timeStamp
         holder.restoreTV.setOnClickListener {
             allNotes[position].isDeleted = 0
-            sendData(allNotes[position])
+            updateNoteInterface.onUpdateNote(allNotes[position])
         }
         holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
         holder.notesTV.text = allNotes[position].noteDescription
@@ -66,8 +69,5 @@ class DeletedNoteRVAdapter(
         notifyDataSetChanged()
     }
 
-    private fun sendData(note: Note) {
-        receiveToGarbage(note)
-    }
 }
 

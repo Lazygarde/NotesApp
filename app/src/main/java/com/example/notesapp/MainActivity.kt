@@ -4,10 +4,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.example.notesapp.databinding.ActivityMainBinding
+import com.example.notesapp.fragment.*
 import com.example.notesapp.model.User
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -47,19 +49,19 @@ class MainActivity : AppCompatActivity() {
         bnTab.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.uncheckFragment -> {
-                    replaceFragmentBottomNavigation(UncheckFragment())
+                    transaction(UncheckFragment())
                     true
                 }
                 R.id.checkFragment -> {
-                    replaceFragmentBottomNavigation(CheckFragment())
+                    transaction(CheckFragment())
                     true
                 }
                 R.id.deleteFragment -> {
-                    replaceFragmentBottomNavigation(DeleteFragment())
+                    transaction(DeleteFragment())
                     true
                 }
                 else -> {
-                    replaceFragmentBottomNavigation(SettingFragment())
+                    transaction(SettingFragment())
                     true
                 }
             }
@@ -74,13 +76,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragmentBottomNavigation(tabFragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragmentContent, tabFragment)
-            addToBackStack(null)
-            commit()
-        }
-    }
 
     fun hideFloatingActionButton(fab: FloatingActionButton) {
         val params = fab.layoutParams as CoordinatorLayout.LayoutParams
@@ -106,6 +101,14 @@ class MainActivity : AppCompatActivity() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    fun hideImageView(imageView: ImageView) {
+        imageView.visibility = View.GONE
+    }
+
+    fun showImageView(imageView: ImageView) {
+        imageView.visibility = View.VISIBLE
     }
 
     fun updateUser(newUser: User) {

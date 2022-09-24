@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/sortById"
-        android:title="Sort by id" />
+        android:title="@string/sortByID" />
     <item
         android:id="@+id/sortByTitle"
-        android:title="Sort by title" />
+        android:title="@string/sortByTitle" />
 
     <item
         android:id="@+id/sortByDate"
-        android:title="Sort by date" />
+        android:title="@string/sortByDate" />
 </menu>

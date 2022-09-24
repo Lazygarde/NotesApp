@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.example.notesapp.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +12,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.adapter.NoteClickDeleteInterface
-import com.example.notesapp.adapter.NoteClickInterface
+import com.example.notesapp.MainActivity
+import com.example.notesapp.R
 import com.example.notesapp.adapter.NoteRVAdapter
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentUncheckBinding
+import com.example.notesapp.inter.NoteClickInterface
+import com.example.notesapp.inter.UpdateNoteInterface
 
-class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
+class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
     private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentUncheckBinding
     private lateinit var viewModel: NoteViewModel
@@ -27,6 +29,8 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
     private lateinit var noteRVAdapter: NoteRVAdapter
     private lateinit var listNote: LiveData<List<Note>>
     private lateinit var popupMenu: PopupMenu
+    private lateinit var addNoteIV: ImageView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,16 +42,20 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addNoteIV = binding.addNoteIV
         noteRV = binding.idRVNotes
         sortIV = binding.ivSort
         noteRV.layoutManager = LinearLayoutManager(context)
-        noteRVAdapter = NoteRVAdapter(this, this) {
-            receiveToGarbage(it)
-        }
+        noteRVAdapter = NoteRVAdapter(this, this, this)
         noteRV.adapter = noteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         listNote = viewModel.listNote
         viewModel.listNote.observe(viewLifecycleOwner) { list ->
+            if (list.isNullOrEmpty()) {
+                (activity as MainActivity).showImageView(addNoteIV)
+            } else {
+                (activity as MainActivity).hideImageView(addNoteIV)
+            }
             noteRVAdapter.updateList(list)
         }
         onSortIVClick()
@@ -109,12 +117,8 @@ class UncheckFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface
         }
     }
 
-    override fun onDeleteIconClick(note: Note) {
-        viewModel.deleteNote(note)
-    }
-
-
-    private fun receiveToGarbage(note: Note) {
+    override fun onUpdateNote(note: Note) {
         viewModel.updateNote(note)
     }
+
 }

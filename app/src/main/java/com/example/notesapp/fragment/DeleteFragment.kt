@@ -1,26 +1,32 @@
-package com.example.notesapp
+package com.example.notesapp.fragment
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesapp.MainActivity
+import com.example.notesapp.R
 import com.example.notesapp.adapter.DeletedNoteRVAdapter
-import com.example.notesapp.adapter.NoteClickDeleteInterface
-import com.example.notesapp.adapter.NoteClickInterface
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentDeleteBinding
+import com.example.notesapp.inter.NoteClickDeleteInterface
+import com.example.notesapp.inter.NoteClickInterface
+import com.example.notesapp.inter.UpdateNoteInterface
 
-class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface {
+class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
+    UpdateNoteInterface {
     private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentDeleteBinding
     private lateinit var viewModel: NoteViewModel
+    private lateinit var addNoteIV : ImageView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,14 +39,18 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         noteRV = binding.idRVDeletedNotes
+        addNoteIV = binding.addNoteIV
         noteRV.layoutManager = LinearLayoutManager(context)
 
-        val deletedNoteRVAdapter = DeletedNoteRVAdapter(this, this, this) {
-            receiveToGarbage(it)
-        }
+        val deletedNoteRVAdapter = DeletedNoteRVAdapter(this, this, this, this)
         noteRV.adapter = deletedNoteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         viewModel.deletedNote.observe(viewLifecycleOwner) { list ->
+            if (list.isNullOrEmpty()) {
+                (activity as MainActivity).showImageView(addNoteIV)
+            } else {
+                (activity as MainActivity).hideImageView(addNoteIV)
+            }
             deletedNoteRVAdapter.updateList(list)
         }
     }
@@ -62,10 +72,9 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface 
             dialog.dismiss()
         }
         recoverBtn.setOnClickListener{
-
             dialog.dismiss()
             note.isDeleted = 0
-            receiveToGarbage(note)
+            viewModel.updateNote(note)
             val bundle = Bundle()
             bundle.putString("noteType", "Edit")
             bundle.putString("noteTitle", note.noteTitle)
@@ -79,14 +88,29 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface 
         }
     }
 
-
-
-
     override fun onDeleteIconClick(note: Note) {
-        viewModel.deleteNote(note)
+        val view = View.inflate((activity as MainActivity), R.layout.deleted_note_dialog, null)
+        val builder = AlertDialog.Builder((activity as MainActivity))
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        val cancelBT = view.findViewById<TextView>(R.id.cancelBT)
+        val deleteBT = view.findViewById<TextView>(R.id.deleteBT)
+
+        cancelBT.setOnClickListener {
+            dialog.dismiss()
+        }
+        deleteBT.setOnClickListener{
+            dialog.dismiss()
+            viewModel.deleteNote(note)
+        }
     }
 
-    private fun receiveToGarbage(note: Note) {
+    override fun onUpdateNote(note: Note) {
         viewModel.updateNote(note)
     }
 }
