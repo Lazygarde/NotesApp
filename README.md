@@ -7,7 +7,6 @@
 * Sử dụng Room Database và LiveData cho các thao tác tạo mới, sửa, xoá Notes.
 * Sử dụng Recycler View để hiển thị các Notes.
 * Notes có title, description, timestamp
-* Có fragment những Notes đã tạo, những Notes đã hoàn thành và những Notes đã xoá (Có thể restore).
 * Có tính năng sort note theo id, title và date.
 * Có sử dụng các Dialog để thông báo.
 * Sử dụng các interface để tối ưu code.
