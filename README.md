@@ -7,6 +7,7 @@ Những tính năng đã làm được:
 * Sử dụng Room Database và LiveData cho các thao tác tạo mới, sửa, xoá Notes.
 * Notes có title, description, timestamp
 * Có fragment những Notes đã tạo, những Notes đã hoàn thành và những Notes đã xoá (Có thể restore).
+* Có tính năng sort note.
 * Hoàn Thiện về UI
 
   ![image](https://user-images.githubusercontent.com/84316258/189871785-d764ae61-ff65-41c8-b795-9d6e34131374.png)
