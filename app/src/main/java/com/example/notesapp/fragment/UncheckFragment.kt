@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
@@ -51,11 +50,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         listNote = viewModel.listNote
         viewModel.listNote.observe(viewLifecycleOwner) { list ->
-            if (list.isNullOrEmpty()) {
-                (activity as MainActivity).showImageView(addNoteIV)
-            } else {
-                (activity as MainActivity).hideImageView(addNoteIV)
-            }
             noteRVAdapter.updateList(list)
         }
         onSortIVClick()
@@ -86,7 +80,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
                             }
                             noteRVAdapter.updateList(sortedList)
                         }
-                        Toast.makeText(activity, "Sorted by id", Toast.LENGTH_SHORT).show()
                         true
                     }
                     R.id.sortByTitle -> {
@@ -96,7 +89,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
                             }
                             noteRVAdapter.updateList(sortedList)
                         }
-                        Toast.makeText(activity, "Sorted by title", Toast.LENGTH_SHORT).show()
                         true
                     }
                     R.id.sortByDate -> {
@@ -106,7 +98,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
                             }
                             noteRVAdapter.updateList(sortedList)
                         }
-                        Toast.makeText(activity, "Sorted by date", Toast.LENGTH_SHORT).show()
                         true
                     }
                     else -> false

@@ -58,7 +58,6 @@ class EditUserFragment : Fragment() {
             Toast.makeText(context, "You did not enter email in the right way!", Toast.LENGTH_LONG)
                 .show()
         } else {
-            Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show()
             askActivityToUpdateUser(username, telephone, email)
             setFragmentResult(Keys.USER_UPDATED, bundleOf())
             parentFragmentManager.beginTransaction().apply {

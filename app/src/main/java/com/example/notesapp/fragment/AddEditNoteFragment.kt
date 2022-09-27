@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.notesapp.MainActivity
@@ -82,7 +81,6 @@ class AddEditNoteFragment : Fragment() {
                     Note(noteTitle, noteDescription, currentDate, noteBackground, 0, 0)
                 updateNote.id = noteID
                 viewModel.updateNote(updateNote)
-                Toast.makeText(activity, "Note Updated..", Toast.LENGTH_SHORT).show()
             }
         } else {
             if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
@@ -96,19 +94,20 @@ class AddEditNoteFragment : Fragment() {
                         0
                     )
                 )
-                Toast.makeText(activity, "Note Added..", Toast.LENGTH_SHORT).show()
             }
         }
         parentFragmentManager.beginTransaction()
             .replace(R.id.flFragmentContent, UncheckFragment::class.java, null)
             .addToBackStack(null)
             .commit()
+        (activity as MainActivity).bnTab.selectedItemId = R.id.uncheckFragment
         (activity as MainActivity).btAppBar.visibility = View.VISIBLE
         (activity as MainActivity).showFloatingActionButton((activity as MainActivity).addFAB)
     }
 
     private fun getRanDomColor(): Int {
         val listColor = listOf(
+            R.color.colorRandomBG6,
             R.color.colorRandomBG7,
             R.color.colorRandomBG8,
             R.color.colorRandomBG9

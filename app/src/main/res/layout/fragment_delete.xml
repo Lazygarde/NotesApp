@@ -14,7 +14,7 @@
         android:layout_marginTop="25dp"
         android:text="@string/recentlyDeleted"
         android:textColor="@color/pink"
-        android:textSize="40sp"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <View
@@ -30,7 +30,7 @@
         android:id="@+id/addNoteIV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="70dp"
+        android:layout_margin="80dp"
         android:src="@drawable/deleted_note"
         android:contentDescription="@string/no" />
 

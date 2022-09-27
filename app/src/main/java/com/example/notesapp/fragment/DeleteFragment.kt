@@ -26,13 +26,14 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
     private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentDeleteBinding
     private lateinit var viewModel: NoteViewModel
-    private lateinit var addNoteIV : ImageView
+    private lateinit var addNoteIV: ImageView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDeleteBinding.inflate(inflater)
+
         return binding.root
     }
 
@@ -46,11 +47,6 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
         noteRV.adapter = deletedNoteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         viewModel.deletedNote.observe(viewLifecycleOwner) { list ->
-            if (list.isNullOrEmpty()) {
-                (activity as MainActivity).showImageView(addNoteIV)
-            } else {
-                (activity as MainActivity).hideImageView(addNoteIV)
-            }
             deletedNoteRVAdapter.updateList(list)
         }
     }
@@ -71,7 +67,7 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
         cancelBtn.setOnClickListener {
             dialog.dismiss()
         }
-        recoverBtn.setOnClickListener{
+        recoverBtn.setOnClickListener {
             dialog.dismiss()
             note.isDeleted = 0
             viewModel.updateNote(note)
@@ -104,7 +100,7 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
         cancelBT.setOnClickListener {
             dialog.dismiss()
         }
-        deleteBT.setOnClickListener{
+        deleteBT.setOnClickListener {
             dialog.dismiss()
             viewModel.deleteNote(note)
         }

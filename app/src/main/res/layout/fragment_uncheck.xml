@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/toolBar"
         android:layout_width="wrap_content"
@@ -15,7 +16,7 @@
         android:layout_marginTop="25dp"
         android:text="@string/notes"
         android:textColor="@color/pink"
-        android:textSize="40sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 
@@ -43,9 +44,9 @@
         android:id="@+id/addNoteIV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="70dp"
-        android:src="@drawable/add_note"
-        android:contentDescription="@string/no" />
+        android:layout_margin="80dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/add_note" />
 
 
     <androidx.recyclerview.widget.RecyclerView

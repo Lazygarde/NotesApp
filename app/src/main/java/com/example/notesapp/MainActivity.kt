@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
@@ -17,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bnTab: BottomNavigationView
+    lateinit var bnTab: BottomNavigationView
     lateinit var btAppBar: BottomAppBar
     lateinit var addFAB: FloatingActionButton
     private var _user = User("Your name", "Phone number", "Email")
@@ -103,13 +102,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun hideImageView(imageView: ImageView) {
-        imageView.visibility = View.GONE
-    }
-
-    fun showImageView(imageView: ImageView) {
-        imageView.visibility = View.VISIBLE
-    }
+//    fun hideImageView(imageView: ImageView) {
+//        imageView.visibility = View.GONE
+//    }
+//
+//    fun showImageView(imageView: ImageView) {
+//        imageView.visibility = View.VISIBLE
+//    }
 
     fun updateUser(newUser: User) {
         _user = newUser

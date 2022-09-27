@@ -38,7 +38,7 @@
             android:padding="4dp"
             android:text="@string/noteTitle"
             android:textColor="#312161"
-            android:textSize="36sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:padding="4dp"
             android:text="@string/notes"
             android:textColor="#BE77B4"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tdTVTimeStamp"
@@ -61,13 +61,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tdTVNotes"
             android:layout_marginStart="63dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="9dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="4dp"
             android:padding="4dp"
             android:text="@string/timestamp"
             android:textColor="#BE77B4"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/idIVDelete"
