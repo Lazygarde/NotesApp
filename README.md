@@ -8,6 +8,7 @@ Những tính năng đã làm được:
 * Notes có title, description, timestamp
 * Có fragment những Notes đã tạo, những Notes đã hoàn thành và những Notes đã xoá (Có thể restore).
 * Có tính năng sort note.
+* Có sử dụng các Dialog để thông báo.
 * Hoàn Thiện về UI
 
   ![image](https://user-images.githubusercontent.com/84316258/189871785-d764ae61-ff65-41c8-b795-9d6e34131374.png)
