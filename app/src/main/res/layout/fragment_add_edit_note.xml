@@ -19,9 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
             android:layout_centerVertical="true"
+            android:contentDescription="@string/no"
             android:src="@drawable/ic_back"
-            app:tint="#312161"
-            android:contentDescription="@string/no" />
+            app:tint="#312161" />
 
         <TextView
             android:id="@+id/tvDone"
@@ -40,10 +40,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="20dp"
             android:contentDescription="@string/no"
             android:src="@drawable/ic_check_no_circle"
             app:tint="#312161" />
+
+        <ImageView
+            android:id="@+id/calendarPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="70dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="#312161"
+            android:contentDescription="@string/no" />
+
+        <ImageView
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="120dp"
+            android:src="@drawable/ic_more_time"
+            app:tint="#312161"
+            android:contentDescription="@string/no" />
+
+        <ImageView
+            android:id="@+id/palettePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="170dp"
+            android:src="@drawable/ic_palette"
+            app:tint="#312161"
+            android:contentDescription="@string/no" />
+
     </RelativeLayout>
 
     <EditText
@@ -69,16 +100,16 @@
         android:layout_below="@id/idEdtNoteTitle"
         android:layout_marginStart="31dp"
         android:layout_marginTop="14dp"
-        android:background="@null"
         android:layout_marginEnd="20dp"
+        android:background="@null"
         android:gravity="start|top"
         android:hint="@string/description"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:singleLine="false"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="24sp"
-        android:importantForAutofill="no" />
+        android:textSize="24sp" />
 
 
 </RelativeLayout>

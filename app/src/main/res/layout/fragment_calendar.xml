@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/toolBar"
+        android:layout_marginEnd="20dp"
+        android:background="@color/pink"
+        android:dateTextAppearance="@color/black"
+        android:firstDayOfWeek="2"
+        android:weekDayTextAppearance="@color/black" />
 
     <TextView
         android:id="@+id/toolBar"
@@ -14,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
-        android:text="@string/notes"
+        android:text="@string/calendar"
         android:textColor="@color/pink"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -29,35 +41,13 @@
         android:layout_marginEnd="30dp"
         android:background="#ffc6c6c6" />
 
-    <ImageView
-        android:id="@+id/ivSort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_sort"
-        app:tint="@color/black" />
-
-    <ImageView
-        android:id="@+id/addNoteIV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="80dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/add_note" />
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVNotes"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
-        android:clipToPadding="true"/>
-
+        android:layout_below="@id/calendarView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp" />
 
 </RelativeLayout>

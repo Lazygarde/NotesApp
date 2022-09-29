@@ -18,4 +18,10 @@ class NoteRepository(private val notesDao: NotesDao) {
     suspend fun update(note: Note) {
         notesDao.update(note)
     }
+
+    fun searchByTitle(title: String) : LiveData<List<Note>> = notesDao.searchByTitle(title)
+
+    fun searchIsDoneByTitle(title: String) : LiveData<List<Note>> = notesDao.searchIsDoneByTitle(title)
+
+    fun calendarSearch(mDate: String) : LiveData<List<Note>> = notesDao.calendarSearch(mDate)
 }

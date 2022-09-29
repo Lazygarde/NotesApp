@@ -9,7 +9,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.example.notesapp.databinding.ActivityMainBinding
 import com.example.notesapp.fragment.*
-import com.example.notesapp.model.User
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -19,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var bnTab: BottomNavigationView
     lateinit var btAppBar: BottomAppBar
     lateinit var addFAB: FloatingActionButton
-    private var _user = User("Your name", "Phone number", "Email")
-    val user get() = _user
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 else -> {
-                    transaction(SettingFragment())
+                    transaction(CalendarFragment())
                     true
                 }
             }
@@ -110,7 +107,4 @@ class MainActivity : AppCompatActivity() {
 //        imageView.visibility = View.VISIBLE
 //    }
 
-    fun updateUser(newUser: User) {
-        _user = newUser
-    }
 }

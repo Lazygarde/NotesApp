@@ -4,10 +4,13 @@
     <string name="no">no</string>
     <string name="notes">Notes</string>
     <string name="done">Done</string>
+    <string name="today">Today</string>
     <string name="description">Description</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date">Date</string>
     <string name="noteTitle">Note Title</string>
     <string name="delete">Delete</string>
+    <string name="calendar">Calendar</string>
     <string name="deletedNoteDialogTitle">This note will be deleted. This action cannot be undone.</string>
     <string name="deleteNote">Delete Note</string>
     <string name="timestamp">Timestamp</string>

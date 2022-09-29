@@ -10,7 +10,9 @@ class Note(
     val timeStamp: String,
     val backGroundColor : Int,
     var isDeleted: Int,
-    var isDone: Int
+    var isDone: Int,
+    val time: String,
+    val date: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id = 0

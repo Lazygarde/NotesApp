@@ -32,4 +32,10 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(note)
     }
+
+    fun searchByTitle(title: String) : LiveData<List<Note>> =  repository.searchByTitle(title)
+
+    fun searchIsDoneByTitle(title: String) : LiveData<List<Note>> = repository.searchIsDoneByTitle(title)
+
+    fun calendarSearch(mDate:String) : LiveData<List<Note>> = repository.calendarSearch(mDate)
 }

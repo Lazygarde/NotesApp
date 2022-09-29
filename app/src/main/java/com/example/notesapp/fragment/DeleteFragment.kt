@@ -52,7 +52,7 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
     }
 
     override fun onNoteClick(note: Note) {
-        val view = View.inflate((activity as MainActivity), R.layout.alert_dialog, null)
+        val view = View.inflate((activity as MainActivity), R.layout.edit_deleted_note_dialog, null)
 
         val builder = AlertDialog.Builder((activity as MainActivity))
         builder.setView(view)
@@ -77,6 +77,8 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
             bundle.putString("noteDescription", note.noteDescription)
             bundle.putInt("noteID", note.id)
             bundle.putInt("noteBackground", note.backGroundColor)
+            bundle.putString("noteTime",note.time)
+            bundle.putString("noteDate", note.date)
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
                 .addToBackStack(null)

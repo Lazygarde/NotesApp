@@ -49,7 +49,7 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
         noteRV.adapter = noteRVAdapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         listNote = viewModel.listNote
-        viewModel.listNote.observe(viewLifecycleOwner) { list ->
+        listNote.observe(viewLifecycleOwner) { list ->
             noteRVAdapter.updateList(list)
         }
         onSortIVClick()
@@ -62,6 +62,8 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
         bundle.putString("noteDescription", note.noteDescription)
         bundle.putInt("noteID", note.id)
         bundle.putInt("noteBackground", note.backGroundColor)
+        bundle.putString("noteTime",note.time)
+        bundle.putString("noteDate", note.date)
         parentFragmentManager.beginTransaction()
             .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
             .addToBackStack(null)
@@ -107,6 +109,7 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
             popupMenu.show()
         }
     }
+
 
     override fun onUpdateNote(note: Note) {
         viewModel.updateNote(note)

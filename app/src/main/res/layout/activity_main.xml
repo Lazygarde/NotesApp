@@ -11,7 +11,7 @@
         android:id="@+id/flFragmentContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="55dp" />
+        android:layout_marginBottom="62dp" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -19,21 +19,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/white"
-        app:fabCradleMargin="15dp"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleVerticalOffset="7dp">
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="20dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnTab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:itemTextColor="#8962F8"
             android:layout_marginEnd="16dp"
             android:background="#00000000"
             android:theme="@style/BaseTheme"
             app:itemIconTint="#8962F8"
+            app:itemTextColor="#8962F8"
             app:menu="@menu/menu" />
-
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,10 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/no"
         android:src="@drawable/ic_add"
-        app:layout_anchor="@id/bottomAppBar"
         app:borderWidth="0dp"
-        app:tint="#8962F8"
-        android:contentDescription="@string/no" />
+        app:layout_anchor="@id/bottomAppBar"
+        app:tint="#8962F8" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
