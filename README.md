@@ -1,17 +1,20 @@
 # NotesApp
 
-Sản phẩm Notes App Android bằng ngôn ngữ Kotlin sau khoá học cơ bản về Mobile tại ProPTIT.
+## Sản phẩm Notes App Android bằng ngôn ngữ Kotlin sau khoá học cơ bản về Mobile tại ProPTIT.
 
-Những tính năng đã làm được:
-
+## Những tính năng đã làm được và những kiến thức sử dụng
+* Giao diện chính với Button Navigation để chuyển các fragment
 * Sử dụng Room Database và LiveData cho các thao tác tạo mới, sửa, xoá Notes.
+* Sử dụng Recycler View để hiển thị các Notes.
 * Notes có title, description, timestamp
-* Có fragment những Notes đã tạo, những Notes đã hoàn thành và những Notes đã xoá (Có thể restore).
-* Có tính năng sort note.
+* Có tính năng sort note theo id, title và date.
 * Có sử dụng các Dialog để thông báo.
-* Hoàn Thiện về UI
-
-  ![image](https://user-images.githubusercontent.com/84316258/189871785-d764ae61-ff65-41c8-b795-9d6e34131374.png)
-  ![image](https://user-images.githubusercontent.com/84316258/189872003-51f68d3f-075c-4ca7-844b-4e0f8afd4dd8.png)
-  ![image](https://user-images.githubusercontent.com/84316258/192536703-70ea9e92-5214-48a9-90e5-961811a845d6.png)
-  ![image](https://user-images.githubusercontent.com/84316258/192536781-b0aed8ad-3c7d-4045-81b2-970e2384ba04.png)
+* Sử dụng các interface để tối ưu code.
+## Hình ảnh
+![image](https://user-images.githubusercontent.com/84316258/192549389-efc0a891-91a2-47b0-8907-478e658dbcdb.png)
+![image](https://user-images.githubusercontent.com/84316258/192549492-9797197d-e9ec-4ef8-9295-d96b31be1a84.png)
+![image](https://user-images.githubusercontent.com/84316258/192549564-a08a3a94-2fd2-46bb-afea-110fdbfd10d1.png)
+![image](https://user-images.githubusercontent.com/84316258/192549714-a99e3af4-e6b7-40b6-b816-02bdd75f71a6.png)
+![image](https://user-images.githubusercontent.com/84316258/192550017-d1f75285-5282-4df4-b293-5a3f5a8f194d.png)
+![image](https://user-images.githubusercontent.com/84316258/192549769-829defe0-8347-4130-9fe5-13d90c6cd802.png)
+![image](https://user-images.githubusercontent.com/84316258/192549874-cb0c2fdb-dabf-466a-9087-55ea18c7aa85.png)
