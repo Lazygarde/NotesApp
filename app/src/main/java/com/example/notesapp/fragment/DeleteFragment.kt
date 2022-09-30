@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,7 +25,6 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
     private lateinit var noteRV: RecyclerView
     private lateinit var binding: FragmentDeleteBinding
     private lateinit var viewModel: NoteViewModel
-    private lateinit var addNoteIV: ImageView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,7 +38,6 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         noteRV = binding.idRVDeletedNotes
-        addNoteIV = binding.addNoteIV
         noteRV.layoutManager = LinearLayoutManager(context)
 
         val deletedNoteRVAdapter = DeletedNoteRVAdapter(this, this, this, this)

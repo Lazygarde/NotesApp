@@ -2,28 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/uncheckFragment"
-        android:enabled="true"
         android:icon="@drawable/ic_list"
         android:title="@string/notes" />
     <item
-        android:id="@+id/checkFragment"
-        android:enabled="true"
-        android:icon="@drawable/ic_check"
-        android:title="@string/done" />
-
-    <item
-        android:id="@+id/placeholder"
-        android:enabled="true"
-        android:title="" />
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_calendar_month"
+        android:title="@string/calendar" />
     <item
         android:id="@+id/deleteFragment"
-        android:enabled="true"
         android:icon="@drawable/ic_delete"
         android:title="@string/deleted" />
 
-    <item
-        android:id="@+id/setting"
-        android:enabled="true"
-        android:icon="@drawable/ic_setting"
-        android:title="@string/setting" />
+
 </menu>

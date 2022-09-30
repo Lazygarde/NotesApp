@@ -55,8 +55,8 @@ class AddEditNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity).btAppBar.visibility = View.GONE
-        (activity as MainActivity).hideFloatingActionButton((activity as MainActivity).addFAB)
+        (activity as MainActivity).bnTab.visibility = View.GONE
+        (activity as MainActivity).addFAB.hide()
         noteTitleEdt = binding.idEdtNoteTitle
         noteDescriptionEdt = binding.idEdtNoteDescription
         backIV = binding.ivICBack
@@ -179,14 +179,13 @@ class AddEditNoteFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
             (activity as MainActivity).bnTab.selectedItemId = R.id.uncheckFragment
-            (activity as MainActivity).btAppBar.visibility = View.VISIBLE
-            (activity as MainActivity).showFloatingActionButton((activity as MainActivity).addFAB)
+            (activity as MainActivity).bnTab.visibility = View.VISIBLE
+            (activity as MainActivity).addFAB.show()
         }
     }
 
     private fun getRanDomColor(): Int {
         val listColor = listOf(
-            R.color.colorRandomBG6,
             R.color.colorRandomBG7,
             R.color.colorRandomBG8,
             R.color.colorRandomBG9

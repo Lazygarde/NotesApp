@@ -28,7 +28,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
     private lateinit var noteRVAdapter: NoteRVAdapter
     private lateinit var listNote: LiveData<List<Note>>
     private lateinit var popupMenu: PopupMenu
-    private lateinit var addNoteIV: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +40,6 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        addNoteIV = binding.addNoteIV
         noteRV = binding.idRVNotes
         sortIV = binding.ivSort
         noteRV.layoutManager = LinearLayoutManager(context)
@@ -105,7 +103,7 @@ class UncheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
                     else -> false
                 }
             }
-            popupMenu.inflate(R.menu.colormenu)
+            popupMenu.inflate(R.menu.sort_menu)
             popupMenu.show()
         }
     }

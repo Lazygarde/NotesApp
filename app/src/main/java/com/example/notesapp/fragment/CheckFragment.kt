@@ -28,7 +28,6 @@ class CheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
     private lateinit var sortIV: ImageView
     private lateinit var popupMenu: PopupMenu
     private lateinit var doneNote: LiveData<List<Note>>
-    private lateinit var addNoteIV : ImageView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,7 +41,6 @@ class CheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
         super.onViewCreated(view, savedInstanceState)
         noteRV = binding.idRVDoneNotes
         sortIV = binding.ivSort
-        addNoteIV = binding.addNoteIV
         noteRV.layoutManager = LinearLayoutManager(context)
 
         doneNoteRVAdapter = DoneNoteRVAdapter(this, this, this)
@@ -106,7 +104,7 @@ class CheckFragment : Fragment(), NoteClickInterface, UpdateNoteInterface {
                     else -> false
                 }
             }
-            popupMenu.inflate(R.menu.colormenu)
+            popupMenu.inflate(R.menu.sort_menu)
             popupMenu.show()
         }
     }

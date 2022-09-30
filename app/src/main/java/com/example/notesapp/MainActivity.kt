@@ -2,56 +2,43 @@ package com.example.notesapp
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.example.notesapp.databinding.ActivityMainBinding
-import com.example.notesapp.fragment.*
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.example.notesapp.fragment.AddEditNoteFragment
+import com.example.notesapp.fragment.CalendarFragment
+import com.example.notesapp.fragment.DeleteFragment
+import com.example.notesapp.fragment.UncheckFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var bnTab: BottomNavigationView
-    lateinit var btAppBar: BottomAppBar
     lateinit var addFAB: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         addFAB = binding.fab
-        btAppBar = binding.bottomAppBar
         bnTab = binding.bnTab
-
         transaction(UncheckFragment())
-
-        btAppBar.visibility = View.VISIBLE
-        showFloatingActionButton(addFAB)
-
-        setUpButtonNav()
         addFAB.setOnClickListener {
             transaction(AddEditNoteFragment())
         }
+        setUpButtonNav()
         setContentView(binding.root)
     }
 
     private fun setUpButtonNav() {
-        bnTab.background = null
-        bnTab.menu.getItem(2).isEnabled = false
         bnTab.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.uncheckFragment -> {
                     transaction(UncheckFragment())
                     true
                 }
-                R.id.checkFragment -> {
-                    transaction(CheckFragment())
-                    true
-                }
+
                 R.id.deleteFragment -> {
                     transaction(DeleteFragment())
                     true
@@ -72,25 +59,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun hideFloatingActionButton(fab: FloatingActionButton) {
-        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
-        val behavior = params.behavior as FloatingActionButton.Behavior?
-        if (behavior != null) {
-            behavior.isAutoHideEnabled = false
-        }
-        fab.hide()
-    }
-
-    fun showFloatingActionButton(fab: FloatingActionButton) {
-        fab.show()
-        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
-        val behavior = params.behavior as FloatingActionButton.Behavior?
-        if (behavior != null) {
-            behavior.isAutoHideEnabled = true
-        }
-    }
-
     fun hideKeyBoard() {
         val view = this.currentFocus
         if (view != null) {
@@ -98,13 +66,5 @@ class MainActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
-
-//    fun hideImageView(imageView: ImageView) {
-//        imageView.visibility = View.GONE
-//    }
-//
-//    fun showImageView(imageView: ImageView) {
-//        imageView.visibility = View.VISIBLE
-//    }
 
 }

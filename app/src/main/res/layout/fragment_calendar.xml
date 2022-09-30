@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/toolBar"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_below="@id/toolBar"
         android:background="@color/pink"
         android:dateTextAppearance="@color/black"
         android:firstDayOfWeek="2"
@@ -25,21 +25,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="@string/calendar"
         android:textColor="@color/pink"
         android:textSize="36sp"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_below="@+id/toolBar"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="#ffc6c6c6" />
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dip"-->
+<!--        android:layout_below="@+id/toolBar"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="30dp"-->
+<!--        android:background="#ffc6c6c6" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

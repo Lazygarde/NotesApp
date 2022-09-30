@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,38 +11,41 @@
         android:id="@+id/flFragmentContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="62dp" />
+        android:layout_above="@id/bnTab" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnTab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/white"
-        app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="20dp">
+        android:layout_alignParentBottom="true"
+        style="@style/Widget.App.BottomNavigationView"
+        app:itemIconSize="30sp"
+        app:menu="@menu/menu"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnTab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            android:background="#00000000"
-            android:theme="@style/BaseTheme"
-            app:itemIconTint="#8962F8"
-            app:itemTextColor="#8962F8"
-            app:menu="@menu/menu" />
-    </com.google.android.material.bottomappbar.BottomAppBar>
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bnTab"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="#00000000"-->
+<!--        app:itemIconSize="30sp"-->
+<!--        app:itemIconTint="#8962F8"-->
+<!--        app:itemTextColor="#8962F8"-->
+<!--        app:menu="@menu/menu" />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/bnTab"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
-        app:layout_anchor="@id/bottomAppBar"
         app:tint="#8962F8" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
+

@@ -13,40 +13,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="@string/notes"
         android:textColor="@color/pink"
         android:textSize="36sp"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_below="@+id/toolBar"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="#ffc6c6c6" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search"
+        android:layout_toStartOf="@id/ivSort"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="28dp"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/searchEDT"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_toLeftOf="@id/ivSort"-->
+<!--        android:drawableStart="@drawable/ic_search"-->
+<!--        android:hint="Search"-->
+<!--        android:textColor="@color/pink"-->
+<!--        android:textColorHint="@color/pink"-->
+<!--        android:textSize="30sp" />-->
+    <!--    <View-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1dip"-->
+    <!--        android:layout_below="@+id/toolBar"-->
+    <!--        android:layout_marginStart="30dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginEnd="30dp"-->
+    <!--        android:background="#ffc6c6c6" />-->
 
     <ImageView
         android:id="@+id/ivSort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="20dp"
         android:contentDescription="@string/no"
-        android:src="@drawable/ic_sort"
-        app:tint="@color/black" />
+        android:src="@drawable/ic_sort" />
 
-    <ImageView
-        android:id="@+id/addNoteIV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="80dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/add_note" />
+<!--    <ImageView-->
+<!--        android:id="@+id/addNoteIV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="80dp"-->
+<!--        android:contentDescription="@string/no"-->
+<!--        android:src="@drawable/add_note" />-->
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -55,9 +75,9 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolBar"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:clipToPadding="true"/>
+        android:clipToPadding="true" />
 
 
 </RelativeLayout>

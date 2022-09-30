@@ -39,13 +39,13 @@
         android:src="@drawable/ic_sort"
         app:tint="@color/black" />
 
-    <ImageView
-        android:id="@+id/addNoteIV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="80dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/done_note" />
+<!--    <ImageView-->
+<!--        android:id="@+id/addNoteIV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="80dp"-->
+<!--        android:contentDescription="@string/no"-->
+<!--        android:src="@drawable/done_note" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVDoneNotes"
