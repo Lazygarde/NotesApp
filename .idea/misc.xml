@@ -11,7 +11,9 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/NotesApp/app/src/main/res/layout/note_rv_item.xml" value="0.27463651050080773" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/background_color_dialog.xml" value="0.232" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/background_item_note.xml" value="0.145" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/background_search_view.xml" value="0.135" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/circle.xml" value="0.135" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/cuctom_button_back.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/custom_button_back.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/custom_ios_dialog.xml" value="0.1345" />
@@ -35,6 +37,8 @@
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_clock.xml" value="0.135" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_close.xml" value="0.135" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_delete.xml" value="0.1365" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_delete_bottom_sheet.xml" value="0.135" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_edit.xml" value="0.135" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_list.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/ic_mail.xml" value="0.1345" />
@@ -53,16 +57,17 @@
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/drawable/menu.xml" value="0.1365" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout-v26/fragment_uncheck.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_add_edit_note.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/alert_dialog.xml" value="0.3446676970633694" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/calendar_rv_item.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/calender_card_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/deleted_note_dialog.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/deleted_note_rv_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/done_note_rv_item.xml" value="0.22" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/edit_deleted_note_dialog.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/edit_deleted_note_dialog.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fill_color_pop_up_menu.xml" value="0.36102564102564105" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_add_edit_note.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_add_edit_note.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_bottom_sheet_delete.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_calendar.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_check.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_delete.xml" value="0.16666666666666666" />
@@ -71,9 +76,10 @@
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_setting.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/fragment_uncheck.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/newproject.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/note_rv_item.xml" value="0.4534412955465587" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/layout/note_rv_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/menu/colormenu.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/menu/menu.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Admin/Documents/GitHub/NotesApp/app/src/main/res/menu/sort_menu.xml" value="0.1796875" />
       </map>
     </option>
   </component>

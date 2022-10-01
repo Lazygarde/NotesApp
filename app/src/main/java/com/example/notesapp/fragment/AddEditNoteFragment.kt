@@ -93,6 +93,11 @@ class AddEditNoteFragment : Fragment() {
             val item3 = myDialog.findViewById(R.id.item3) as ImageView
             val item4 = myDialog.findViewById(R.id.item4) as ImageView
             val item5 = myDialog.findViewById(R.id.item5) as ImageView
+            val item6 = myDialog.findViewById(R.id.item6) as ImageView
+            val item7 = myDialog.findViewById(R.id.item7) as ImageView
+            val item8 = myDialog.findViewById(R.id.item8) as ImageView
+            val item9 = myDialog.findViewById(R.id.item9) as ImageView
+            val item10 = myDialog.findViewById(R.id.item10) as ImageView
             item1.setOnClickListener {
                 noteBackground = R.color.item1
                 myDialog.dismiss()
@@ -113,6 +118,27 @@ class AddEditNoteFragment : Fragment() {
                 noteBackground = R.color.item5
                 myDialog.dismiss()
             }
+            item6.setOnClickListener {
+                noteBackground = R.color.item6
+                myDialog.dismiss()
+            }
+            item7.setOnClickListener {
+                noteBackground = R.color.item7
+                myDialog.dismiss()
+            }
+            item8.setOnClickListener {
+                noteBackground = R.color.item8
+                myDialog.dismiss()
+            }
+            item9.setOnClickListener {
+                noteBackground = R.color.item9
+                myDialog.dismiss()
+            }
+            item10.setOnClickListener {
+                noteBackground = R.color.item10
+                myDialog.dismiss()
+            }
+
             myDialog.window?.attributes?.gravity = Gravity.TOP
             myDialog.show()
         }

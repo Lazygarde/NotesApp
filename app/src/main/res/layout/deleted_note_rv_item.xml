@@ -1,82 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/noteContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:padding="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
-    app:cardElevation="4dp"
-    card_view:cardBackgroundColor="@color/lightPink">
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
+    app:cardElevation="4dp">
 
 
-<!--        <TextView-->
-<!--            android:id="@+id/tdTVNoteTitle"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:paddingStart="10dp"-->
-<!--            android:paddingTop="10dp"-->
-<!--            android:text="@string/noteTitle"-->
-<!--            android:textColor="#312161"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/manrope_bold"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!--        <TextView-->
-<!--            android:id="@+id/tdTVNotes"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:paddingStart="10dp"-->
-<!--            android:paddingTop="5dp"-->
-<!--            android:paddingBottom="5dp"-->
-<!--            android:text="@string/notes"-->
-<!--            android:textColor="#BE77B4"-->
-<!--            android:fontFamily="@font/manrope_regular"-->
-<!--            android:textSize="11sp"/>-->
-
-<!--    </LinearLayout>-->
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/tdTVNoteTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/bold"
+            android:padding="4dp"
+            android:text="@string/noteTitle"
+            android:textColor="#312161"
+            android:textSize="28sp" />
 
-            <TextView
-                android:id="@+id/tdTVNoteTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:maxLines="3"
-                android:padding="4dp"
-                android:text="@string/noteTitle"
-                android:textColor="#312161"
-                android:textSize="32sp"
-                android:fontFamily="@font/manrope_bold" />
+        <TextView
+            android:id="@+id/tdTVNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tdTVNoteTitle"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/regular"
+            android:maxLines="5"
+            android:padding="4dp"
+            android:text="@string/notes"
+            android:textColor="#312161"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/tdTVNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tdTVNoteTitle"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp"
-                android:maxLines="5"
-                android:fontFamily="@font/manrope_regular"
-                android:padding="4dp"
-                android:text="@string/notes"
-                android:textColor="#BE77B4"
-                android:textSize="20sp" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

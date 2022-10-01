@@ -2,44 +2,48 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
-    android:id="@+id/calendar_rv_item"
+    android:id="@+id/noteContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:backgroundTint="@color/white"
+    android:layout_marginBottom="5dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/titleTV"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:maxLines="3"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/bold"
             android:padding="4dp"
             android:text="@string/noteTitle"
             android:textColor="#312161"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/timeReminder"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTV"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/regular"
             android:maxLines="5"
-            android:textColor="#BE77B4"
+            android:padding="4dp"
+            android:textColor="#312161"
             android:textSize="20sp"
             tool:text="10:00" />
+
     </RelativeLayout>
 
 

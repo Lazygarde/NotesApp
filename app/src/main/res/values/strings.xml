@@ -8,6 +8,7 @@
     <string name="description">Description</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="date">Date</string>
+    <string name="choose">Choose</string>
     <string name="timeRemain">Time remain</string>
     <string name="noteTitle">Note Title</string>
     <string name="delete">Delete</string>
@@ -22,7 +23,7 @@
     <string name="sortByID">Sort by id</string>
     <string name="deleted">Deleted</string>
     <string name="sortByTitle">Sort by title</string>
-    <string name="sortByDate">Sort by date</string>
+    <string name="sortByTime">Sort by time</string>
     <string name="save">Save</string>
     <string name="phoneNumber">Phone number</string>
     <string name="email">Email</string>

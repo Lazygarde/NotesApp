@@ -9,5 +9,5 @@
 
     <item
         android:id="@+id/sortByDate"
-        android:title="@string/sortByDate" />
+        android:title="@string/sortByTime" />
 </menu>

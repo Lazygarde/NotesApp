@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#CAB8FB</color>
     <color name="noColor">#00FAFAFA</color>
+    <color name="green">#7CFC00</color>
     <color name="lightPink">#FFC5F7</color>
     <color name="gray">#333232</color>
     <color name="colorPrimary">#6200EE</color>
@@ -36,9 +37,15 @@
     <color name="ios_btn_normal">#FFE9E9E9</color>
     <color name="ios_btn_press">#FFCDCDCD</color>
 
-    <color name="item1">#cdb4db</color>
-    <color name="item2">#ffc8dd</color>
-    <color name="item3">#ffafcc</color>
-    <color name="item4">#bde0fe</color>
-    <color name="item5">#a2d2ff</color>
+    <color name="item1">#ffcbf2</color>
+    <color name="item2">#f3c4fb</color>
+    <color name="item3">#ecbcfd</color>
+    <color name="item4">#e5b3fe</color>
+    <color name="item5">#e2afff</color>
+    <color name="item6">#deaaff</color>
+    <color name="item7">#d8bbff</color>
+    <color name="item8">#d0d1ff</color>
+    <color name="item9">#c8e7ff</color>
+    <color name="item10">#c0fdff</color>
+
 </resources>

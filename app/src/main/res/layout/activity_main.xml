@@ -15,11 +15,11 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnTab"
+        style="@style/Widget.App.BottomNavigationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        style="@style/Widget.App.BottomNavigationView"
-        app:menu="@menu/menu"/>
+        app:menu="@menu/menu" />
 
 
 </RelativeLayout>

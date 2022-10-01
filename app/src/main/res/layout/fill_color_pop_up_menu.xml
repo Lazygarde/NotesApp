@@ -16,7 +16,7 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#cdb4db" />
+        app:tint="@color/item1" />
 
     <ImageView
         android:id="@+id/item2"
@@ -27,7 +27,7 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#ffc8dd" />
+        app:tint="@color/item2" />
 
     <ImageView
         android:id="@+id/item3"
@@ -38,7 +38,7 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#ffafcc" />
+        app:tint="@color/item3" />
 
     <ImageView
         android:id="@+id/item4"
@@ -49,10 +49,65 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#bde0fe" />
+        app:tint="@color/item4" />
 
     <ImageView
         android:id="@+id/item5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/item5" />
+
+    <ImageView
+        android:id="@+id/item6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/item6" />
+
+    <ImageView
+        android:id="@+id/item7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/item7" />
+
+    <ImageView
+        android:id="@+id/item8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/item8" />
+
+    <ImageView
+        android:id="@+id/item9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/item9" />
+
+    <ImageView
+        android:id="@+id/item10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -61,6 +116,6 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#a2d2ff" />
+        app:tint="@color/item10" />
 
 </LinearLayout>

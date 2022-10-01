@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/bold"
         android:text="@string/notes"
         android:textColor="@color/pink"
         android:textSize="36sp"
-        android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 
 
@@ -57,8 +57,8 @@
         android:layout_marginEnd="10dp"
         android:layout_toStartOf="@id/ivSort"
         android:background="@drawable/background_search_view"
-        app:closeIcon="@drawable/ic_close"
         android:theme="@style/AppSearchView"
+        app:closeIcon="@drawable/ic_close"
         app:iconifiedByDefault="false"
         app:queryHint="Search"
         app:searchIcon="@drawable/ic_search" />

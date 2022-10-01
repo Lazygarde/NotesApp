@@ -2,22 +2,18 @@ package com.example.notesapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.data.Note
 import com.example.notesapp.databinding.NoteRvItemBinding
 import com.example.notesapp.fragment.NotesFragment
-import com.example.notesapp.inter.NoteClickInterface
-import com.example.notesapp.inter.UpdateNoteInterface
 import java.text.SimpleDateFormat
 import java.util.*
 
 class NoteRVAdapter(
     val context: NotesFragment,
-    private val noteClickInterface: NoteClickInterface,
-    private val updateNoteInterface: UpdateNoteInterface
+    private val noteClickInterface: NoteClickInterface
 ) : RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
 
     private val allNotes = ArrayList<Note>()
@@ -26,7 +22,6 @@ class NoteRVAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val noteTV: TextView = binding.tdTVNoteTitle
         val timeTV: TextView = binding.tdTVTimeStamp
-        val deleteTV: ImageView = binding.idIVDelete
         val notesTV: TextView = binding.tdTVNotes
         val noteContainer: CardView = binding.noteContainer
     }
@@ -44,17 +39,8 @@ class NoteRVAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.noteTV.text = allNotes[position].noteTitle
         holder.timeTV.text = getTimeRemain(allNotes[position].date, allNotes[position].time)
-//        holder.checkTV.setOnClickListener {
-//            allNotes[position].isDone = 1
-//            updateNoteInterface.onUpdateNote(allNotes[position])
-//        }
-
         holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
         holder.notesTV.text = allNotes[position].noteDescription
-        holder.deleteTV.setOnClickListener {
-            allNotes[position].isDeleted = 1
-            updateNoteInterface.onUpdateNote(allNotes[position])
-        }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
         }
@@ -82,6 +68,10 @@ class NoteRVAdapter(
         }
     }
 
+    fun getNoteAt(position: Int): Note {
+        return allNotes[position]
+    }
+
     override fun getItemCount(): Int {
         return allNotes.size
     }
@@ -91,4 +81,8 @@ class NoteRVAdapter(
         allNotes.addAll(newList)
         notifyDataSetChanged()
     }
+}
+
+interface NoteClickInterface {
+    fun onNoteClick(note: Note)
 }

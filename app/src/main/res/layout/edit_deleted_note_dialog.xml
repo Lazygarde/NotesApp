@@ -11,17 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="@string/recentlyDeletedNote"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/regular"
         android:gravity="center"
         android:text="@string/dialogMessage"
         android:textColor="@android:color/black"
@@ -43,13 +44,13 @@
             android:id="@+id/cancel_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/white"
-            android:text="@string/cancel"
+            android:fontFamily="@font/bold"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="@string/cancel"
             android:textColor="#FF037BFF"
             android:textSize="16sp" />
 
@@ -64,15 +65,15 @@
             android:id="@+id/recover_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/white"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
             android:text="@string/recover"
             android:textColor="#FF037BFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>
