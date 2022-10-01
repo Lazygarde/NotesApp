@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
     val listNote: LiveData<List<Note>>
     val deletedNote: LiveData<List<Note>>
-    val doneNote: LiveData<List<Note>>
     private val repository: NoteRepository
 
     init {
@@ -18,7 +17,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         repository = NoteRepository(dao)
         listNote = repository.listNotes
         deletedNote = repository.deletedNotes
-        doneNote = repository.doneNotes
     }
 
     fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
@@ -33,9 +31,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(note)
     }
 
-    fun searchByTitle(title: String) : LiveData<List<Note>> =  repository.searchByTitle(title)
+    fun searchByTitle(title: String): LiveData<List<Note>> = repository.searchByTitle(title)
 
-    fun searchIsDoneByTitle(title: String) : LiveData<List<Note>> = repository.searchIsDoneByTitle(title)
-
-    fun calendarSearch(mDate:String) : LiveData<List<Note>> = repository.calendarSearch(mDate)
+    fun calendarSearch(mDate: String): LiveData<List<Note>> = repository.calendarSearch(mDate)
 }

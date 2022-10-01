@@ -19,33 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         style="@style/Widget.App.BottomNavigationView"
-        app:itemIconSize="30sp"
         app:menu="@menu/menu"/>
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bnTab"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:background="#00000000"-->
-<!--        app:itemIconSize="30sp"-->
-<!--        app:itemIconTint="#8962F8"-->
-<!--        app:itemTextColor="#8962F8"-->
-<!--        app:menu="@menu/menu" />-->
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bnTab"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_add"
-        app:borderWidth="0dp"
-        app:tint="#8962F8" />
 
 </RelativeLayout>
 

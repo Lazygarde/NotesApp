@@ -16,7 +16,6 @@ import com.example.notesapp.R
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentAddEditNoteBinding
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -56,7 +55,6 @@ class AddEditNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).bnTab.visibility = View.GONE
-        (activity as MainActivity).addFAB.hide()
         noteTitleEdt = binding.idEdtNoteTitle
         noteDescriptionEdt = binding.idEdtNoteDescription
         backIV = binding.ivICBack
@@ -151,14 +149,12 @@ class AddEditNoteFragment : Fragment() {
     }
 
     private fun backOnClick() {
-        val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm", Locale.getDefault())
-        val currentDate: String = sdf.format(Date())
         noteTitle = noteTitleEdt.text.toString()
         noteDescription = noteDescriptionEdt.text.toString()
         if (checkValid()) {
             if (noteType == "Edit") {
                 val updateNote =
-                    Note(noteTitle, noteDescription, currentDate, noteBackground, 0, 0, time, date)
+                    Note(noteTitle, noteDescription, noteBackground,0, time, date)
                 updateNote.id = noteID
                 viewModel.updateNote(updateNote)
             } else {
@@ -166,21 +162,18 @@ class AddEditNoteFragment : Fragment() {
                     Note(
                         noteTitle,
                         noteDescription,
-                        currentDate,
                         getRanDomColor(),
-                        0,
                         0,
                         time, date
                     )
                 )
             }
             parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragmentContent, UncheckFragment::class.java, null)
+                .replace(R.id.flFragmentContent, NotesFragment::class.java, null)
                 .addToBackStack(null)
                 .commit()
             (activity as MainActivity).bnTab.selectedItemId = R.id.uncheckFragment
             (activity as MainActivity).bnTab.visibility = View.VISIBLE
-            (activity as MainActivity).addFAB.show()
         }
     }
 

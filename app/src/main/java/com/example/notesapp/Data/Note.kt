@@ -7,10 +7,8 @@ import androidx.room.PrimaryKey
 class Note(
     val noteTitle: String,
     val noteDescription: String,
-    val timeStamp: String,
     val backGroundColor : Int,
     var isDeleted: Int,
-    var isDone: Int,
     val time: String,
     val date: String
 ) {

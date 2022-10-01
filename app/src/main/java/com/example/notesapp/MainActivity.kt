@@ -6,27 +6,21 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.notesapp.databinding.ActivityMainBinding
-import com.example.notesapp.fragment.AddEditNoteFragment
 import com.example.notesapp.fragment.CalendarFragment
 import com.example.notesapp.fragment.DeleteFragment
-import com.example.notesapp.fragment.UncheckFragment
+import com.example.notesapp.fragment.NotesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var bnTab: BottomNavigationView
-    lateinit var addFAB: FloatingActionButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        addFAB = binding.fab
         bnTab = binding.bnTab
-        transaction(UncheckFragment())
-        addFAB.setOnClickListener {
-            transaction(AddEditNoteFragment())
-        }
+        transaction(NotesFragment())
         setUpButtonNav()
         setContentView(binding.root)
     }
@@ -35,10 +29,9 @@ class MainActivity : AppCompatActivity() {
         bnTab.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.uncheckFragment -> {
-                    transaction(UncheckFragment())
+                    transaction(NotesFragment())
                     true
                 }
-
                 R.id.deleteFragment -> {
                     transaction(DeleteFragment())
                     true
@@ -58,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
 
     fun hideKeyBoard() {
         val view = this.currentFocus

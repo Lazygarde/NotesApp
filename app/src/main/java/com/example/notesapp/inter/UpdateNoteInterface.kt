@@ -2,6 +2,6 @@ package com.example.notesapp.inter
 
 import com.example.notesapp.data.Note
 
-interface UpdateNoteInterface{
+interface UpdateNoteInterface {
     fun onUpdateNote(note: Note)
 }

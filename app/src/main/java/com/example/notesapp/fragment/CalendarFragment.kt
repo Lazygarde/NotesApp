@@ -36,8 +36,6 @@ class CalendarFragment : Fragment() {
         val adapter = CalendarRVAdapter(this)
         recyclerView.adapter = adapter
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-
-
         calendarView = binding.calendarView
         calendarView.setOnDateChangeListener { _, year, month, day ->
             val date = String.format("%02d.%02d.%04d", day, month + 1, year)

@@ -74,7 +74,7 @@ class DeleteFragment : Fragment(), NoteClickInterface, NoteClickDeleteInterface,
             bundle.putString("noteDescription", note.noteDescription)
             bundle.putInt("noteID", note.id)
             bundle.putInt("noteBackground", note.backGroundColor)
-            bundle.putString("noteTime",note.time)
+            bundle.putString("noteTime", note.time)
             bundle.putString("noteDate", note.date)
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragmentContent, AddEditNoteFragment::class.java, bundle)
