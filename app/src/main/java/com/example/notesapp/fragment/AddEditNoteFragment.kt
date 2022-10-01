@@ -2,12 +2,12 @@ package com.example.notesapp.fragment
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.app.TimePickerDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +18,6 @@ import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentAddEditNoteBinding
 import java.util.*
 
-
 class AddEditNoteFragment : Fragment() {
     private lateinit var binding: FragmentAddEditNoteBinding
     private lateinit var noteTitleEdt: EditText
@@ -28,21 +27,15 @@ class AddEditNoteFragment : Fragment() {
     private lateinit var checkIV: ImageView
     private lateinit var doneTV: TextView
     private lateinit var noteType: String
+    private lateinit var noteTitle: String
+    private lateinit var noteDescription: String
+    private lateinit var timePickerDialog: TimePickerDialog
+    private lateinit var datePickerDialog: DatePickerDialog
+    private var date = ""
+    private var time = ""
     private var noteID: Int = 0
     private var noteBackground: Int = 0
 
-
-    private lateinit var timePickerDialog: TimePickerDialog
-    private lateinit var datePickerDialog: DatePickerDialog
-    private var year = 0
-    private var month = 0
-    private var day = 0
-    private var hour = 0
-    private var minute = 0
-    private var date = ""
-    private var time = ""
-    private lateinit var noteTitle: String
-    private lateinit var noteDescription: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,18 +84,37 @@ class AddEditNoteFragment : Fragment() {
 
     private fun palettePicker() {
         binding.palettePicker.setOnClickListener {
-//            val layoutInflater = context?.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//            val popupView: View = layoutInflater.inflate(R.layout.fill_color_pop_up_menu, null)
-//            val popupWindow = PopupWindow(
-//                popupView,
-//                ActionMenuView.LayoutParams.WRAP_CONTENT,
-//                ActionMenuView.LayoutParams.WRAP_CONTENT, true
-//            )
-//            popupWindow.isOutsideTouchable = true
-//            popupWindow.isFocusable = true
-//            popupWindow.setBackgroundDrawable(BitmapDrawable())
-//            val parent = requireView().rootView
-//            popupWindow.showAtLocation(parent, Gravity.getAbsoluteGravity(Gravity.NO_GRAVITY, ), 100, 100)
+            val myDialog = Dialog((activity as MainActivity))
+            myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            myDialog.setContentView(R.layout.fill_color_pop_up_menu)
+            myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            val item1 = myDialog.findViewById(R.id.item1) as ImageView
+            val item2 = myDialog.findViewById(R.id.item2) as ImageView
+            val item3 = myDialog.findViewById(R.id.item3) as ImageView
+            val item4 = myDialog.findViewById(R.id.item4) as ImageView
+            val item5 = myDialog.findViewById(R.id.item5) as ImageView
+            item1.setOnClickListener {
+                noteBackground = R.color.item1
+                myDialog.dismiss()
+            }
+            item2.setOnClickListener {
+                noteBackground = R.color.item2
+                myDialog.dismiss()
+            }
+            item3.setOnClickListener {
+                noteBackground = R.color.item3
+                myDialog.dismiss()
+            }
+            item4.setOnClickListener {
+                noteBackground = R.color.item4
+                myDialog.dismiss()
+            }
+            item5.setOnClickListener {
+                noteBackground = R.color.item5
+                myDialog.dismiss()
+            }
+            myDialog.window?.attributes?.gravity = Gravity.TOP
+            myDialog.show()
         }
     }
 
@@ -111,12 +123,12 @@ class AddEditNoteFragment : Fragment() {
         binding.timePicker.setOnTouchListener { _: View?, motionEvent: MotionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_UP) {
                 val calendar = Calendar.getInstance()
-                hour = calendar.get(Calendar.HOUR)
-                minute = calendar.get(Calendar.MINUTE)
+                val hour = calendar.get(Calendar.HOUR)
+                val minute = calendar.get(Calendar.MINUTE)
                 timePickerDialog = TimePickerDialog(
                     activity, R.style.TimePickerDialogTheme,
-                    { _: TimePicker?, hourOfDay: Int, minute: Int ->
-                        time = String.format("%02d:%02d", hourOfDay, minute)
+                    { _: TimePicker?, hourOfDay: Int, minutes: Int ->
+                        time = String.format("%02d:%02d", hourOfDay, minutes)
                         timePickerDialog.dismiss()
                     }, hour, minute, false
                 )
@@ -131,9 +143,9 @@ class AddEditNoteFragment : Fragment() {
         binding.calendarPicker.setOnTouchListener { _: View?, motionEvent: MotionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_UP) {
                 val calendar = Calendar.getInstance()
-                year = calendar.get(Calendar.YEAR)
-                month = calendar.get(Calendar.MONTH)
-                day = calendar.get(Calendar.DAY_OF_MONTH)
+                val year = calendar.get(Calendar.YEAR)
+                val month = calendar.get(Calendar.MONTH)
+                val day = calendar.get(Calendar.DAY_OF_MONTH)
                 datePickerDialog = DatePickerDialog(
                     requireActivity(), R.style.TimePickerDialogTheme,
                     { _: DatePicker?, year1: Int, monthOfYear: Int, dayOfMonth: Int ->
@@ -154,7 +166,7 @@ class AddEditNoteFragment : Fragment() {
         if (checkValid()) {
             if (noteType == "Edit") {
                 val updateNote =
-                    Note(noteTitle, noteDescription, noteBackground,0, time, date)
+                    Note(noteTitle, noteDescription, noteBackground, 0, time, date)
                 updateNote.id = noteID
                 viewModel.updateNote(updateNote)
             } else {
@@ -162,7 +174,7 @@ class AddEditNoteFragment : Fragment() {
                     Note(
                         noteTitle,
                         noteDescription,
-                        getRanDomColor(),
+                        noteBackground,
                         0,
                         time, date
                     )
@@ -177,14 +189,6 @@ class AddEditNoteFragment : Fragment() {
         }
     }
 
-    private fun getRanDomColor(): Int {
-        val listColor = listOf(
-            R.color.colorRandomBG7,
-            R.color.colorRandomBG8,
-            R.color.colorRandomBG9
-        )
-        return listColor.random()
-    }
 
     private fun checkValid(): Boolean {
         if (noteTitle.isEmpty()) {
@@ -198,6 +202,9 @@ class AddEditNoteFragment : Fragment() {
             return false
         } else if (date.isEmpty()) {
             Toast.makeText(context, "Please pick the date", Toast.LENGTH_SHORT).show()
+            return false
+        } else if (noteBackground == 0) {
+            Toast.makeText(context, "Please pick the background color", Toast.LENGTH_SHORT).show()
             return false
         }
         return true

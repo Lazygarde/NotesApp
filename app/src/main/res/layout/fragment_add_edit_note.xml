@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="170dp"
+            android:contentDescription="@string/no"
             android:src="@drawable/ic_palette"
-            app:tint="#312161"
-            android:contentDescription="@string/no" />
+            app:tint="#312161" />
 
     </RelativeLayout>
 
@@ -91,7 +91,7 @@
         android:inputType="none"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="48sp" />
+        android:textSize="32sp" />
 
     <EditText
         android:id="@+id/idEdtNoteDescription"

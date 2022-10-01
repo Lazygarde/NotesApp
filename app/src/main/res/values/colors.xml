@@ -35,4 +35,10 @@
     <color name="ios_bg">#FFE9E9E9</color>
     <color name="ios_btn_normal">#FFE9E9E9</color>
     <color name="ios_btn_press">#FFCDCDCD</color>
+
+    <color name="item1">#cdb4db</color>
+    <color name="item2">#ffc8dd</color>
+    <color name="item3">#ffafcc</color>
+    <color name="item4">#bde0fe</color>
+    <color name="item5">#a2d2ff</color>
 </resources>

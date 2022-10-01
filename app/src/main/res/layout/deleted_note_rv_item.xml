@@ -5,45 +5,78 @@
     android:id="@+id/noteContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    app:cardCornerRadius="20dp"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
     card_view:cardBackgroundColor="@color/lightPink">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
 
-        <TextView
-            android:id="@+id/tdTVNoteTitle"
+
+<!--        <TextView-->
+<!--            android:id="@+id/tdTVNoteTitle"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:text="@string/noteTitle"-->
+<!--            android:textColor="#312161"-->
+<!--            android:textSize="15sp"-->
+<!--            android:fontFamily="@font/manrope_bold"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tdTVNotes"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:paddingTop="5dp"-->
+<!--            android:paddingBottom="5dp"-->
+<!--            android:text="@string/notes"-->
+<!--            android:textColor="#BE77B4"-->
+<!--            android:fontFamily="@font/manrope_regular"-->
+<!--            android:textSize="11sp"/>-->
+
+<!--    </LinearLayout>-->
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:maxLines="3"
-            android:padding="4dp"
-            android:text="@string/noteTitle"
-            android:textColor="#312161"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tdTVNotes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tdTVNoteTitle"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
-            android:maxLines="5"
-            android:padding="4dp"
-            android:text="@string/notes"
-            android:textColor="#BE77B4"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tdTVNoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:maxLines="3"
+                android:padding="4dp"
+                android:text="@string/noteTitle"
+                android:textColor="#312161"
+                android:textSize="32sp"
+                android:fontFamily="@font/manrope_bold" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tdTVNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tdTVNoteTitle"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:maxLines="5"
+                android:fontFamily="@font/manrope_regular"
+                android:padding="4dp"
+                android:text="@string/notes"
+                android:textColor="#BE77B4"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

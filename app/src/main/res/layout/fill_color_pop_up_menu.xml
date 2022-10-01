@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fill_color_pop_up_menu"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:orientation="horizontal"
-    app:cardCornerRadius="10dp">
-
+    android:layout_marginTop="70dp"
+    android:background="@drawable/background_color_dialog"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/item1"
@@ -18,7 +16,7 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#FFC5F7" />
+        app:tint="#cdb4db" />
 
     <ImageView
         android:id="@+id/item2"
@@ -29,7 +27,7 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#FEFFC5" />
+        app:tint="#ffc8dd" />
 
     <ImageView
         android:id="@+id/item3"
@@ -40,11 +38,21 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="#E7C1FF" />
+        app:tint="#ffafcc" />
 
     <ImageView
-
         android:id="@+id/item4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/no"
+        android:src="@drawable/ic_circle"
+        app:tint="#bde0fe" />
+
+    <ImageView
+        android:id="@+id/item5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -53,6 +61,6 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="@color/colorRandomBG1" />
+        app:tint="#a2d2ff" />
 
 </LinearLayout>
