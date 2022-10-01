@@ -81,7 +81,7 @@ class DeleteFragment : Fragment(), NoteClickInterface {
                         }
                         Snackbar.make(
                             binding.idRVDeletedNotes,
-                            "${note.noteTitle} has just been deleted!",
+                            "${note.noteTitle} has just been recover!",
                             Snackbar.LENGTH_LONG
                         ).setAction("Undo") {
                             note.isDeleted = 1

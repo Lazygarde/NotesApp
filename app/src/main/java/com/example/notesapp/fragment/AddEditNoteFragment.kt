@@ -218,19 +218,19 @@ class AddEditNoteFragment : Fragment() {
 
     private fun checkValid(): Boolean {
         if (noteTitle.isEmpty()) {
-            Toast.makeText(context, "Please enter a valid title", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please enter a valid title", Toast.LENGTH_LONG).show()
             return false
         } else if (noteDescription.isEmpty()) {
-            Toast.makeText(context, "Please enter a valid description", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please enter a valid description", Toast.LENGTH_LONG).show()
             return false
         } else if (time.isEmpty()) {
-            Toast.makeText(context, "Please pick the time", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please pick the time", Toast.LENGTH_LONG).show()
             return false
         } else if (date.isEmpty()) {
-            Toast.makeText(context, "Please pick the date", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please pick the date", Toast.LENGTH_LONG).show()
             return false
         } else if (noteBackground == 0) {
-            Toast.makeText(context, "Please pick the background color", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please pick the background color", Toast.LENGTH_LONG).show()
             return false
         }
         return true
