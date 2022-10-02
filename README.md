@@ -43,10 +43,25 @@
 
   <img src="https://user-images.githubusercontent.com/84316258/193429840-b38a967c-55e9-4172-a95a-a19537ee8ff5.jpg" width="300" />
 
+* Khi click vào Deleted Note sẽ có Alert Dialog thông báo phải Recover mới được Edit Note.
 
-![247298974333167021_AdobeExpress](https://user-images.githubusercontent.com/84316258/193429996-81663c7d-6ec3-4f54-93cf-edc4391daa10.gif)
+  https://user-images.githubusercontent.com/84316258/193433810-a74dc44b-54a3-4b48-9130-04b78060413a.mp4
 
-![1169985436240312145_AdobeExpress](https://user-images.githubusercontent.com/84316258/193430076-e44deeda-ae23-468f-bea4-f3d609a9f422.gif)
-![1966686170650105596_AdobeExpress](https://user-images.githubusercontent.com/84316258/193430078-c58114e8-3f71-4064-86ae-c3f03887773e.gif)
-![3974994477108070594_AdobeExpress](https://user-images.githubusercontent.com/84316258/193430081-771df6e0-90e4-4dd5-8b40-e2dd9dcf73e5.gif)
-![7507261827591120300_AdobeExpress](https://user-images.githubusercontent.com/84316258/193430086-3e569031-09d7-46b1-964d-6f0ba1ab0fc0.gif)
+
+* Popup Menu để chọn sort theo id, title hoặc time.
+
+  https://user-images.githubusercontent.com/84316258/193433863-87657986-6de8-441f-b596-c39b3bbaebd7.mp4
+
+* Search theo Title. 
+
+  https://user-images.githubusercontent.com/84316258/193433933-96807b1d-bc8c-44a0-a945-4f68bf3afe97.mp4
+
+* Swipe Note để xoá, có thể Undo.
+
+  https://user-images.githubusercontent.com/84316258/193433965-3e17f504-9415-4182-84d9-7630311356b2.mp4
+
+
+* Swipe Deleted Note sang trái để xoá hẳn Note, sang phải để Recover Note.
+
+  https://user-images.githubusercontent.com/84316258/193433980-452804bb-524e-4ed1-82d7-1a1351b68080.mp4
+
