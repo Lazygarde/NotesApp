@@ -4,12 +4,14 @@
 
 ## Những tính năng đã làm được và những kiến thức sử dụng
 * Giao diện chính với Button Navigation để chuyển các fragment
-* Sử dụng Room Database và LiveData cho các thao tác tạo mới, sửa, xoá Notes.
-* Sử dụng Recycler View để hiển thị các Notes.
-* Notes có title, description, timestamp
-* Có tính năng sort note theo id, title và date.
-* Có sử dụng các Dialog để thông báo.
-* Sử dụng các interface để tối ưu code.
+* Sử dụng Room Database và LiveData cho các thao tác tạo mới, sửa, xoá Notes
+* Sử dụng Recycler View để hiển thị các Notes
+* Notes có title, description, time, date
+* Có tính năng sort note theo id, title và timeremain
+* Có tính năng search note by title
+* Có sử dụng các Dialog để thông báo
+* Swipe note để xoá hoặc recover note
+* Sử dụng các interface để tối ưu code
 
 ## Mô tả chi tiết về sản phẩm:
 * Giao diện chính của App
