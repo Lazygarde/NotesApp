@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,18 +8,82 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <CalendarView
-        android:id="@+id/calendarView"
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/calendarBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolBar"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/pink"
-        android:dateTextAppearance="@color/black"
-        android:firstDayOfWeek="2"
-        android:weekDayTextAppearance="@color/black" />
+        android:backgroundTint="@color/pink"
+        app:cardCornerRadius="10dp"
+        app:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/bold"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap"
+                tools:text="month" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/no"
+                android:src="@drawable/ic_back" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="18dp"
+                android:contentDescription="@string/no"
+                android:src="@drawable/ic_front" />
+
+            <com.github.sundeepk.compactcalendarview.CompactCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/textMonth"
+                android:layout_marginTop="15dp"
+                app:compactCalendarBackgroundColor="@color/pink"
+                app:compactCalendarCurrentDayBackgroundColor="#B4B4B4"
+                app:compactCalendarCurrentSelectedDayBackgroundColor="@color/green"
+                app:compactCalendarMultiEventIndicatorColor="#354ade"
+                app:compactCalendarOtherMonthDaysTextColor="@color/black"
+                app:compactCalendarTextColor="@color/black"
+                app:compactCalendarTextSize="13sp" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--    <CalendarView-->
+    <!--        android:id="@+id/calendarView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/toolBar"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:background="@color/pink"-->
+    <!--        android:dateTextAppearance="@color/black"-->
+    <!--        android:firstDayOfWeek="2"-->
+    <!--        android:weekDayTextAppearance="@color/black" />-->
 
     <TextView
         android:id="@+id/toolBar"
@@ -36,7 +101,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/calendarView"
+        android:layout_below="@id/calendarBackground"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp" />
