@@ -1,6 +1,7 @@
 # NotesApp
 
 ## Sản phẩm Notes App Android bằng ngôn ngữ Kotlin sau khoá học cơ bản về Mobile tại ProPTIT.
+> [Download App](https://github.com/Lazygarde/NotesApp/files/9704793/NotesApp.zip)
 
 ## Những tính năng đã làm được và những kiến thức sử dụng
 * Giao diện chính với Button Navigation để chuyển các fragment
