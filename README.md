@@ -23,11 +23,11 @@
   <img src="https://user-images.githubusercontent.com/84316258/193429538-7d3f88ae-8fda-420c-b187-64ba90c27de9.jpg" width="300" />
 * Click vào bảng chọn màu cho note background
 
-  <img src="https://user-images.githubusercontent.com/84316258/193429587-09210a76-befe-4a19-aac9-24efe19058c6.jpg" width="200" />
+  <img src="https://user-images.githubusercontent.com/84316258/193429587-09210a76-befe-4a19-aac9-24efe19058c6.jpg" width="300" />
 * Chọn deadline cho Note:
 
-  <img src="https://user-images.githubusercontent.com/84316258/193429641-62b7c715-f3fc-4d1b-95a4-2ca42e9d7a3d.jpg" width="200" />
-  <img src="https://user-images.githubusercontent.com/84316258/193429645-aadbb08e-0975-4b04-99c0-50e6369f30bd.jpg" width="200" />
+  <img src="https://user-images.githubusercontent.com/84316258/193429641-62b7c715-f3fc-4d1b-95a4-2ca42e9d7a3d.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/84316258/193429645-aadbb08e-0975-4b04-99c0-50e6369f30bd.jpg" width="300" />
 * Nếu có phương thức nào chưa được chọn đủ thì sẽ không lưu được
 
   <img src="https://user-images.githubusercontent.com/84316258/193429697-7b806b57-564b-4090-833b-2b12aa205d70.jpg" width="300" />
