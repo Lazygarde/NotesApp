@@ -15,7 +15,7 @@ Like any others note apps, NotesApp has basic features for instance: adding note
   <img src="https://user-images.githubusercontent.com/84316258/193429538-7d3f88ae-8fda-420c-b187-64ba90c27de9.jpg" width="300" />
 * You can choose the color of your note background by clicking on the color button.
 
-  <img src="https://user-images.githubusercontent.com/84316258/193429587-09210a76-befe-4a19-aac9-24efe19058c6.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/84316258/197158369-8d851ac6-5dc0-4e23-91bc-a94a2cdf3469.jpg" width="300" />
 * Choose the deadline of your note by clicking on the time and date button.
 
   <img src="https://user-images.githubusercontent.com/84316258/193429641-62b7c715-f3fc-4d1b-95a4-2ca42e9d7a3d.jpg" width="300" />
@@ -31,8 +31,9 @@ Like any others note apps, NotesApp has basic features for instance: adding note
 
 * Calendar view of your notes. You can choose the date to display the notes of that day.
 
-  <img src="https://user-images.githubusercontent.com/84316258/193429758-5320f849-797e-4525-81e2-6d84cdad6052.jpg" width="300" />
-  <img src="https://user-images.githubusercontent.com/84316258/193429769-013a5614-33b5-4c80-ab9c-f1246ed0af8b.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/84316258/197158500-71a2cca7-02d8-4237-89c9-a264c9fe0949.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/84316258/197158518-0778ea89-ae46-4c77-8bea-d5ed5fe161b3.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/84316258/197158541-ca5b0774-c47b-4ef9-bcf1-050b0c88bfa0.jpg" width="300" />
   
 * Custom alert dialog
 
