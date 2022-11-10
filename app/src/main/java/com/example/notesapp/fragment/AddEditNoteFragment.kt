@@ -16,25 +16,25 @@ import com.example.notesapp.R
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentAddEditNoteBinding
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddEditNoteFragment : Fragment() {
     private lateinit var binding: FragmentAddEditNoteBinding
-    private lateinit var noteTitleEdt: EditText
     private lateinit var noteDescriptionEdt: EditText
     private lateinit var backIV: ImageView
     private lateinit var viewModel: NoteViewModel
     private lateinit var checkIV: ImageView
     private lateinit var doneTV: TextView
     private lateinit var noteType: String
-    private lateinit var noteTitle: String
-    private lateinit var noteDescription: String
     private lateinit var timePickerDialog: TimePickerDialog
     private lateinit var datePickerDialog: DatePickerDialog
     private var date = ""
     private var time = ""
     private var noteID: Int = 0
     private var noteBackground: Int = 0
+    private var noteTitle: String = ""
+    private var noteDescription: String = ""
 
 
     override fun onCreateView(
@@ -48,8 +48,7 @@ class AddEditNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).bnTab.visibility = View.GONE
-        noteTitleEdt = binding.idEdtNoteTitle
-        noteDescriptionEdt = binding.idEdtNoteDescription
+        noteDescriptionEdt = binding.edtNoteDescription
         backIV = binding.ivICBack
         checkIV = binding.ivICCheck
         doneTV = binding.tvDone
@@ -58,10 +57,10 @@ class AddEditNoteFragment : Fragment() {
         val bundle = this.arguments
         noteType = bundle?.getString("noteType").toString()
         if (noteType == "Edit") {
+            val s = bundle?.getString("noteTitle") + "\n" + bundle?.getString("noteDescription")
             noteID = bundle?.getInt("noteID", 0)!!
             noteBackground = bundle.getInt("noteBackground", R.color.colorRandomBG9)
-            noteTitleEdt.setText(bundle.getString("noteTitle"))
-            noteDescriptionEdt.setText(bundle.getString("noteDescription"))
+            noteDescriptionEdt.setText(s)
             time = bundle.getString("noteTime").toString()
             date = bundle.getString("noteDate").toString()
         }
@@ -94,10 +93,6 @@ class AddEditNoteFragment : Fragment() {
             val item4 = myDialog.findViewById(R.id.item4) as ImageView
             val item5 = myDialog.findViewById(R.id.item5) as ImageView
             val item6 = myDialog.findViewById(R.id.item6) as ImageView
-            val item7 = myDialog.findViewById(R.id.item7) as ImageView
-            val item8 = myDialog.findViewById(R.id.item8) as ImageView
-            val item9 = myDialog.findViewById(R.id.item9) as ImageView
-            val item10 = myDialog.findViewById(R.id.item10) as ImageView
             item1.setOnClickListener {
                 noteBackground = R.color.item1
                 myDialog.dismiss()
@@ -120,22 +115,6 @@ class AddEditNoteFragment : Fragment() {
             }
             item6.setOnClickListener {
                 noteBackground = R.color.item6
-                myDialog.dismiss()
-            }
-            item7.setOnClickListener {
-                noteBackground = R.color.item7
-                myDialog.dismiss()
-            }
-            item8.setOnClickListener {
-                noteBackground = R.color.item8
-                myDialog.dismiss()
-            }
-            item9.setOnClickListener {
-                noteBackground = R.color.item9
-                myDialog.dismiss()
-            }
-            item10.setOnClickListener {
-                noteBackground = R.color.item10
                 myDialog.dismiss()
             }
 
@@ -186,53 +165,66 @@ class AddEditNoteFragment : Fragment() {
         }
     }
 
+    private fun countTimeRemaining(date: String, time: String): Long {
+        val sdf = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+        val deadline = sdf.parse("$date $time")
+        val currentTime = sdf.parse(sdf.format(Date()))
+        return (deadline!!.time - currentTime!!.time) / 60000
+    }
+
     private fun backOnClick() {
-        noteTitle = noteTitleEdt.text.toString()
-        noteDescription = noteDescriptionEdt.text.toString()
-        if (checkValid()) {
+        analystNoteDescription()
+        if (noteBackground == 0) noteBackground = R.color.item1
+        if (time == "") time = "00:00"
+        if (date == "") date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
+        if (noteTitle != "") {
             if (noteType == "Edit") {
                 val updateNote =
-                    Note(noteTitle, noteDescription, noteBackground, 0, time, date)
+                    Note(
+                        noteTitle, noteDescription, noteBackground, 0,
+                        countTimeRemaining(date, time), time, date
+                    )
                 updateNote.id = noteID
                 viewModel.updateNote(updateNote)
             } else {
                 viewModel.addNote(
                     Note(
-                        noteTitle,
-                        noteDescription,
-                        noteBackground,
-                        0,
-                        time, date
+                        noteTitle, noteDescription, noteBackground, 0,
+                        countTimeRemaining(date, time), time, date
                     )
                 )
             }
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragmentContent, NotesFragment::class.java, null)
-                .addToBackStack(null)
-                .commit()
-            (activity as MainActivity).bnTab.selectedItemId = R.id.uncheckFragment
-            (activity as MainActivity).bnTab.visibility = View.VISIBLE
         }
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.flFragmentContent, NotesFragment::class.java, null)
+            .addToBackStack(null)
+            .commit()
+        (activity as MainActivity).bnTab.selectedItemId = R.id.uncheckFragment
+        (activity as MainActivity).bnTab.visibility = View.VISIBLE
     }
 
-
-    private fun checkValid(): Boolean {
-        if (noteTitle.isEmpty()) {
-            Toast.makeText(context, "Please enter a valid title", Toast.LENGTH_LONG).show()
-            return false
-        } else if (noteDescription.isEmpty()) {
-            Toast.makeText(context, "Please enter a valid description", Toast.LENGTH_LONG).show()
-            return false
-        } else if (time.isEmpty()) {
-            Toast.makeText(context, "Please pick the time", Toast.LENGTH_LONG).show()
-            return false
-        } else if (date.isEmpty()) {
-            Toast.makeText(context, "Please pick the date", Toast.LENGTH_LONG).show()
-            return false
-        } else if (noteBackground == 0) {
-            Toast.makeText(context, "Please pick the background color", Toast.LENGTH_LONG).show()
-            return false
+    private fun analystNoteDescription() {
+        var s = ""
+        var ok = 0
+        noteDescription = ""
+        val noteDescriptionData = noteDescriptionEdt.text.toString()
+        for (i in noteDescriptionData) {
+            if (ok == 1) {
+                noteDescription += i
+            } else {
+                if (i == '\n') {
+                    noteTitle = s
+                    ok = 1
+                } else {
+                    s += i
+                }
+            }
         }
-        return true
+        if (ok == 0) {
+            noteTitle = s
+        }
+        noteTitle = noteTitle.trim()
+        noteDescription = noteDescription.trim()
     }
+
 }

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.data.Note
 import com.example.notesapp.databinding.DeletedNoteRvItemBinding
 import com.example.notesapp.fragment.DeleteFragment
+import com.example.notesapp.interfaces.NoteClickInterface
 
 class DeletedNoteRVAdapter(
     val context: DeleteFragment,
@@ -37,6 +38,9 @@ class DeletedNoteRVAdapter(
         holder.noteTV.text = allNotes[position].noteTitle
         holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
         holder.notesTV.text = allNotes[position].noteDescription
+        if (holder.notesTV.text == "") {
+            holder.notesTV.text = "No additional text"
+        }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
         }

@@ -23,7 +23,7 @@
     <string name="sortByID">Sort by id</string>
     <string name="deleted">Deleted</string>
     <string name="sortByTitle">Sort by title</string>
-    <string name="sortByTime">Sort by time</string>
+    <string name="sortByTime">Sort by time remaining</string>
     <string name="save">Save</string>
     <string name="phoneNumber">Phone number</string>
     <string name="email">Email</string>

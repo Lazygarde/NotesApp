@@ -63,6 +63,8 @@ class CalendarFragment : Fragment() {
             override fun onMonthScroll(date: Date) {
                 binding.textMonth.text =
                     SimpleDateFormat("MMMM - yyyy", Locale.getDefault()).format(date)
+                val searchQuery = sdf.format(date)
+                showCalendarItemRecyclerView(searchQuery)
             }
         })
     }
@@ -91,7 +93,6 @@ class CalendarFragment : Fragment() {
                         )
                     )
                 }
-
             }
         }
     }
@@ -100,7 +101,7 @@ class CalendarFragment : Fragment() {
         val listNote = viewModel.calendarSearch(date)
         listNote.observe(viewLifecycleOwner) { list ->
             val sortedList = list.sortedBy { allNotes ->
-                allNotes.time
+                allNotes.timeRemaining
             }
             adapter.updateList(sortedList)
         }

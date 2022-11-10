@@ -24,6 +24,6 @@ interface NotesDao {
     @Query("SELECT * FROM notesTable WHERE noteTitle LIKE :title AND isDeleted = 0")
     fun searchByTitle(title: String): LiveData<List<Note>>
 
-    @Query("SELECT * FROM notesTable WHERE date LIKE :mDate")
+    @Query("SELECT * FROM notesTable WHERE date LIKE :mDate AND isDeleted = 0")
     fun calendarSearch(mDate: String): LiveData<List<Note>>
 }

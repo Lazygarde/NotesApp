@@ -17,11 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.MainActivity
 import com.example.notesapp.R
-import com.example.notesapp.adapter.NoteClickInterface
 import com.example.notesapp.adapter.NoteRVAdapter
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentNotesBinding
+import com.example.notesapp.interfaces.NoteClickInterface
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
@@ -45,6 +45,7 @@ class NotesFragment : Fragment(), NoteClickInterface {
         binding = FragmentNotesBinding.inflate(inflater)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -203,7 +204,7 @@ class NotesFragment : Fragment(), NoteClickInterface {
                     R.id.sortByDate -> {
                         listNote.observe(viewLifecycleOwner) { allNotes ->
                             val sortedList = allNotes.sortedBy { list ->
-                                "${list.date} + ${list.time}"
+                                list.timeRemaining
                             }
                             noteRVAdapter.updateList(sortedList)
                         }

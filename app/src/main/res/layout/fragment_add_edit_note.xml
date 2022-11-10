@@ -77,28 +77,12 @@
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/idEdtNoteTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rlEditToolBar"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@null"
-        android:fontFamily="@font/regular"
-        android:hint="@string/title"
-        android:importantForAutofill="no"
-        android:inputType="none"
-        android:textColor="#8962F8"
-        android:textColorHint="#E7DFFF"
-        android:textSize="35sp" />
 
     <EditText
-        android:id="@+id/idEdtNoteDescription"
+        android:id="@+id/edtNoteDescription"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/idEdtNoteTitle"
+        android:layout_below="@id/rlEditToolBar"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
@@ -106,13 +90,12 @@
         android:background="@null"
         android:fontFamily="@font/regular"
         android:gravity="start|top"
-        android:hint="@string/description"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:singleLine="false"
         android:textColor="#8962F8"
         android:textColorHint="#E7DFFF"
-        android:textSize="24sp" />
-
+        android:textSize="24sp"
+        tools:ignore="LabelFor" />
 
 </RelativeLayout>

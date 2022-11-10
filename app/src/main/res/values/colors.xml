@@ -38,14 +38,10 @@
     <color name="ios_btn_press">#FFCDCDCD</color>
 
     <color name="item1">#ffcbf2</color>
-    <color name="item2">#f3c4fb</color>
-    <color name="item3">#ecbcfd</color>
-    <color name="item4">#e5b3fe</color>
-    <color name="item5">#e2afff</color>
-    <color name="item6">#deaaff</color>
-    <color name="item7">#d8bbff</color>
-    <color name="item8">#d0d1ff</color>
-    <color name="item9">#c8e7ff</color>
-    <color name="item10">#c0fdff</color>
+    <color name="item2">#ecbcfd</color>
+    <color name="item3">#deaaff</color>
+    <color name="item4">#d0d1ff</color>
+    <color name="item5">#c8e7ff</color>
+    <color name="item6">#c0fdff</color>
 
 </resources>

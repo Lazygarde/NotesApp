@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.MainActivity
 import com.example.notesapp.R
 import com.example.notesapp.adapter.DeletedNoteRVAdapter
-import com.example.notesapp.adapter.NoteClickInterface
 import com.example.notesapp.data.Note
 import com.example.notesapp.data.NoteViewModel
 import com.example.notesapp.databinding.FragmentDeleteBinding
+import com.example.notesapp.interfaces.NoteClickInterface
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 

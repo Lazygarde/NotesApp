@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="70dp"
+    android:layout_marginStart="20dp"
     android:background="@drawable/background_color_dialog"
     android:orientation="horizontal">
 
@@ -68,54 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_circle"
-        app:tint="@color/item6" />
-
-    <ImageView
-        android:id="@+id/item7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_circle"
-        app:tint="@color/item7" />
-
-    <ImageView
-        android:id="@+id/item8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_circle"
-        app:tint="@color/item8" />
-
-    <ImageView
-        android:id="@+id/item9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/no"
-        android:src="@drawable/ic_circle"
-        app:tint="@color/item9" />
-
-    <ImageView
-        android:id="@+id/item10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/no"
         android:src="@drawable/ic_circle"
-        app:tint="@color/item10" />
+        app:tint="@color/item6" />
 
 </LinearLayout>

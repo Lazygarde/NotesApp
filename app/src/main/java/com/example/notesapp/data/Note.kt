@@ -9,6 +9,7 @@ class Note(
     val noteDescription: String,
     val backGroundColor : Int,
     var isDeleted: Int,
+    val timeRemaining: Long,
     val time: String,
     val date: String
 ) {

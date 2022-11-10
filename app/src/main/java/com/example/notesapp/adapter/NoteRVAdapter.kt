@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.data.Note
 import com.example.notesapp.databinding.NoteRvItemBinding
 import com.example.notesapp.fragment.NotesFragment
+import com.example.notesapp.interfaces.NoteClickInterface
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,6 +42,9 @@ class NoteRVAdapter(
         holder.timeTV.text = getTimeRemain(allNotes[position].date, allNotes[position].time)
         holder.noteContainer.setCardBackgroundColor(holder.itemView.resources.getColor(allNotes[position].backGroundColor))
         holder.notesTV.text = allNotes[position].noteDescription
+        if (holder.notesTV.text == "") {
+            holder.notesTV.text = "No additional text"
+        }
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes[position])
         }
@@ -81,8 +85,4 @@ class NoteRVAdapter(
         allNotes.addAll(newList)
         notifyDataSetChanged()
     }
-}
-
-interface NoteClickInterface {
-    fun onNoteClick(note: Note)
 }
